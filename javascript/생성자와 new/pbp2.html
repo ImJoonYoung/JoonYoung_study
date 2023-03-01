@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function person(){}
+  let p = new person();   // p = person{ }; new는 객체 생성자이며 함수이다.
+  p.name = 'joonyoung';
+  p.introduce = function(){
+    return 'My name is ' + this.name;
+  }
+
+  function person(){};
+  let p2 = new person();
+  p2.name = 'yujung';
+  p2.introduce = function(){
+    return 'My name is ' + this.name;
+  }
+    // 별로 개선된 것이 없다.
+  document.write(p.introduce() + '<br>', p2.introduce() + '<br>');
+
+  /*개선된 자바스크립트*/
+  function Person(name){
+    this.name = name;
+    this.introduce = function(){
+      return "My name is " + this.name;      //초기화 (init)
+    }
+  }
+  let p3 = new Person('joonyoung');
+  document.write(p3.introduce()+'<br>');
+  let p4 = new Person('yujung');
+  document.write(p4.introduce()+'<br>');
+</script>
+</body>
+</html>

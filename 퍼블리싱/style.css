@@ -1,0 +1,11 @@
+
+div{
+    font-size:100px;font-family: Arial;font-weight: bold;
+    text-shadow: 0.5px 0.5px 0 red,
+                 1px 1px 0 orange,
+                 1.5px 1.5px 0 yellow,
+2px 2px 0 green,2.5px 2.5px 0 blue, 3px 3px 0 darkblue, 3.5px 3.5px 0 purple;
+}
+
+
+

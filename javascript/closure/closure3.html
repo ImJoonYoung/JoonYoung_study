@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function factory_movie(title){
+    return {
+      get_title : function (){
+        return title;     //첫번째 매개변수, 외부함수의 지역변수
+      },
+      set_title : function(_title){
+        if(typeof _title == 'String'){
+        title = _title
+        }else{
+          alert('문자열이 아닙니다.')
+        }
+      }
+    }
+  }
+  ghost = factory_movie('Ghost in the shell');
+  matrix = factory_movie('Matrix');
+
+  alert(ghost.get_title());
+  alert(matrix.get_title());    //객체들의 함수에 접근할 수 있다.
+
+  ghost.set_title('1');   // private 변수(외부에 감춰진 메소드를 이용할수있다.)
+  matrix.set_title('짱구는못말려');
+  alert(ghost.get_title());
+  alert(matrix.get_title());
+</script>
+</body>
+</html>

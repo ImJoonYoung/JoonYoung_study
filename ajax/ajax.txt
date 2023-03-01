@@ -1,0 +1,35 @@
+****Ajax****
+
+ajax 자바스크립트, jquery를 이용하여 비동기식으로 서버와 통신하는 방식
+
+$.ajax(settings){
+	data:서버에 전송할 데이터, key/value 형식의 객체
+	dataType:서버가 리턴하는 데이터 타입(xml, json, script, html)
+	type: 서버로 전송하는 데이터의 타입 (POST, GET)
+	url: 데이터를 전송할 URL
+	success : ajax를통신에 성공했을때 호출될 이벤트 핸들러
+}
+
+<div id="result"></div>
+  <input type="text" id="msg" />
+  <input type="button" value="get result" id="getResult" />
+
+<script>
+  $(document).ready(function(){
+  $('#getResult').click(function(){
+    $('#result').html('');
+    $.ajax({
+      url:'result_ajax.php',
+      dataType:'json',
+      type:'POST',
+      data:{msg:$('#msg').val()},
+      success:function(result){			-- result는 서버가 리턴해준 데이터다.
+        if(result['result']==true){
+          $('#result').html(result['msg']);
+        }
+      }
+    });
+  });
+  })
+</script>
+

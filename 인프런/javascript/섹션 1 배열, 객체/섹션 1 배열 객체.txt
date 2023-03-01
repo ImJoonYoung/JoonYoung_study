@@ -1,0 +1,68 @@
+ 1. 배열, 객체
+
+ Array(배열) : 순서가 있는 데이터 컬렉션을 저장할 때 사용 / 데이터 컬렉션이 논리적으로 정의된 규칙에 의해 나열된 것 
+	     *여러개의 데이터를 순서와 함께 저장하는 창고*
+ ex ) let ranking = ["jason", "Alice", "Chris", "Jane", "Tom"];  // 데이터 하나하나를 요소라 한다.
+		    0	  1	2       3	      4      // 0번부터 순서대로(Index)를 통해 요소에 접근 가능
+      let ranking[0] = "jason"
+
+ Property : 데이터 타입마다 가지고 있는 고유한 속성들
+ ranking.length : 특정 배열의 길이를 나타내는 속성 ==> 길이는 배열 내 요소의 개수를 뜻함
+
+
+ Method(명령) : 어떠한 기능을 가지고 있는 명령어
+
+ 배열의 Method : push(), pop(), indexOf(), includes()
+ 1. push() : 배열의 가장 뒤에 데이터를 추가해주는 메소드
+ 2. pop() : 배열 가장 끝에 있는 데이터를 제거해주는 메소드
+ 3. indexOf("데이터") : 특정 배열에서 주어진 데이터의 index(순서)값을 반환 객체는 0부터 시작  / 없으면 -1로 나온다.
+ 4. includes("데이터") : 특정 배열에 주어진 데이터가 존재하는지 여부 확인 / 여부에따라 참, 거짓으로 판단
+ 
+
+ Object(객체)
+ 객체의 property는 key : value를 가져온다. 콜론으로 구분한다
+ ex) let userData = {
+      name : "jason",
+      age : 25,
+      sex : "Male"
+    }
+  ** 불러오고 싶을때는 userData.name 또는 userData["name"] -> Jason이나온다 key값을 .에 붙여준다. / []사용은 braket notation이라 한다.
+  ** 추가하고 싶을때는 userData.email = "jason@test.com" 으로 key, value값을 넣어줄 수 있다.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

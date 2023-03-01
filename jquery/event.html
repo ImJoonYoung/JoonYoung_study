@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="./script/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+<input id="click_me" type="button" value="click me">
+<input id="remove_event" type="button" value="unbind">
+<input id="trigger_event" type="button" value="trigger">
+
+<script>
+
+  function clickHandler(e){
+    alert('thank you');
+  };
+  $(document).ready(function (){
+    $('#click_me').bind('click', clickHandler);
+    $('#remove_event').bind('click', function(e){
+      $('click_me').unbind('click', clickHandler);
+    });
+    $('#trigger_event').bind('click', function(e){
+      $('#click_me').trigger('click');
+    });
+
+
+  });
+</script>
+</body>
+
+</html>

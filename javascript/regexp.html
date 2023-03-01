@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  let pattern=/a/;
+  let str = 'bacdef';
+  console.log(str.match(pattern));
+  console.log(str.replace(pattern, 'A'));
+  let xi = /a/;
+  console.log('Abcde'.match(xi));
+  let oi = /a/i;
+  console.log('Abcde'.match(oi));
+  let xg = /a/;
+  console.log('abceda'.match(xg));
+  let og = /a/g;
+  console.log('abceda'.match(og));
+  let ig = /a/ig;
+  console.log('AabcdAa'.match(ig));
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="03511866-7dd2-41fc-8087-c8199ecaef6f" name="한국서비스표준진흥원" url="http://kisss.annis1.gethompy.com">
+        <fileTransfer host="kisss.annis1.gethompy.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

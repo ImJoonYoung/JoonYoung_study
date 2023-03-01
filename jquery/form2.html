@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="./script/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<p>
+  Type 'correct' to validate
+</p>
+<form action="javascript:alert('success!');">
+  <div>
+    <input type="text">
+
+    <input type="submit">
+  </div>
+</form>
+<span></span>
+<script>
+  $('form').submit(function (){
+    if($("input[type='text']").val() == "correct"){
+      $('span').html("validated...").show();
+      return true;
+    }
+    $('span').html("Not valid!").show().fadeOut(1000);
+    return false
+  });
+</script>
+</body>
+</html>

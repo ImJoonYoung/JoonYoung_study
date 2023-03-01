@@ -1,0 +1,20 @@
+.a {
+  color: red;
+}
+.a ul {
+  border: 1px solid red;
+}
+.a ul > li {
+  background: pink;
+}
+.a ul > li a {
+  text-decoration: none;
+}
+.a ul > li a:hover {
+  color: red;
+}
+.a ul > li:last-child {
+  background: yellow;
+}
+
+/*# sourceMappingURL=selector.css.map */

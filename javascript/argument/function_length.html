@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function zero(){
+    console.log(
+            'zero.length', zero.length,
+            'arguments', arguments.length
+    );
+  }
+  function one(arg1){
+    console.log(
+            'one.length', one.length,
+            'arguments', arguments.length
+    );
+  }
+  function two(arg1, arg2){
+    console.log(
+            'two.length', two.length,
+            'arguments', arguments.length
+    );
+  }
+  zero(); // zero.length(매개변수) 0 arguments(인자의 수) 0
+  one('val1', 'val2');  // one.length(매개변수) 1 arguments(인자의 수) 2
+  two('val1');  // two.length(매개변수) 2 arguments(인자의 수) 1
+</script>
+</body>
+</html>

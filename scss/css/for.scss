@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+@for $i from 1 to 7 {
+  .list .ico#{$i} {background:url('ico#{$i}.png') no-repeat;color:red}
+  .list .ico#{$i}:before{content:"제목#{$i}";display: inline-block;margin-right:15px}
+}

@@ -1,0 +1,17 @@
+@mixin posi($x, $y, $z){
+  position: absolute;left: $x; top:$y; z-index:$z;
+  @if $x == 50% and $y == 50%{
+  transform: translate(-50%, -50%);
+}@else if($x == 50%){
+  transform: translateX(-50%);
+}@else if($y == 50%){
+  transform: translateY(-50%);
+}
+}
+
+div{
+  width:300px;height:300px;
+  color:#fff;
+  background:#000;
+  @include posi(50%, null, 99)
+}

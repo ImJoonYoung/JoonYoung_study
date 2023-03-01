@@ -1,0 +1,68 @@
+@charset "UTF-8";
+.list .ico1 {
+  background: url("ico1.png") no-repeat;
+  color: red;
+}
+
+.list .ico1:before {
+  content: "제목1";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list .ico2 {
+  background: url("ico2.png") no-repeat;
+  color: red;
+}
+
+.list .ico2:before {
+  content: "제목2";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list .ico3 {
+  background: url("ico3.png") no-repeat;
+  color: red;
+}
+
+.list .ico3:before {
+  content: "제목3";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list .ico4 {
+  background: url("ico4.png") no-repeat;
+  color: red;
+}
+
+.list .ico4:before {
+  content: "제목4";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list .ico5 {
+  background: url("ico5.png") no-repeat;
+  color: red;
+}
+
+.list .ico5:before {
+  content: "제목5";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list .ico6 {
+  background: url("ico6.png") no-repeat;
+  color: red;
+}
+
+.list .ico6:before {
+  content: "제목6";
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/*# sourceMappingURL=for.css.map */

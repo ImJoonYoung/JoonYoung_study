@@ -1,0 +1,10 @@
+.a{color:red;
+  ul{border:1px solid red;
+  > li{background:pink;
+    a{text-decoration:none;
+    &:hover{color:red}
+    }
+    &:last-child{background:yellow}
+  }
+  }
+}

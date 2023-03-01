@@ -1,0 +1,174 @@
+****************PHP**********************
+
+string : ' ', " "로 시작을 하는데 두개가 섞이면 안된다. 
+concatenation : "Hello"."world"; -> .이 문자열과 문자열을 결합시켜준다
+strlen : 문자열의 길이를 구해준다. -> ex) echo strlen('Hello'.'world'); 
+PHP의 변수 : ex) $a = 10; 지정할 변수 앞에 $를 쓴다.
+PHP의 URL 파라미터 : <?php echo $_GET['name']; -> php 뒤에 ?name=임준영 이라고 쓰면 저 php문에 이름이 나온다.
+- 소괄호 안에 있는 것과 url에 있는 이름을 바꿀 수 있다.
+- URL을 두 개씩 받고 싶을땐 뒤에 &를 쓴다.
+PHP의 띄어쓰기 : nl2br echo nl2br을 쓰면 띄어쓰기 가능
+
+* <?=$_GET['id'];?> = url의 아이디값을 들고와라
+
+* <?=file_get_contents('data/'.$_GET['id']);?> url의 id값을 데이터 폴더안에서 내용을 들고와라 의미
+
+1. PHP의 비교연산자
+ * var_dump()는 개발할때 많이 필요하다. 꼭! 알아놓기 입력값을 출력해줌
+ * == 같다라는 의미 같으면 true, 다르면 false가 나온다.
+ * 2>1 2는 1보다 크다라는 의미 맞으면 true, 틀리면 false 
+ * 2>=1 2는 1보다 같거나 크다라는 의미 맞으면 true, 틀리면 false
+(비교연산자는 true와 false라는 값을 출력한다.)
+
+2. 조건문
+<?php 
+   if(true){  -> 조건문은 true일때 출력되고 아니면 출력되지 않는다
+}
+?>
+
+<?php
+    if(isset($_GET['id'])){
+    echo $_GET['id'];              -> id값을 받아오는게 세팅돼어있을때 id값을 출력하고 아니면 
+  } else{			     Welcome 출력	
+    echo "Welcome";
+  }
+    ?>
+
+3. 반복문
+count = 총 갯수를 의미한다
+array_push = 객체의 마지막에 내가 넣고싶은것을 추가한다.
+scandir = directory를 받아서 배열로 만들어 준다.
+scandir에서 첫번째는 . 이 나오고 두번째는 .. 이 나온다.
+
+4. 함수의 형식
+
+function basic(){                          -- 기본 함수 호출 방법
+        print_r('안녕하세요'.'<br/>');
+        print_r('안녕하세요2');
+    }
+    basic();
+
+function sum($a, $b){                     -- 매개변수 함수 호출(입력값을 받아서 보낸다)
+    print_r($a + $b.'<br/>');
+}
+
+    sum(2,4);
+    sum(4,12);
+    sum(2,8);
+    ?>
+
+  <h2>return</h2>
+    <?php                                   -- return 함수 호출 해서 print로 돌려준다.
+    function sum2($a, $b){
+        return $a + $b;
+    }
+
+    print(sum2(2,4));
+    file_put_contents('result.txt', sum2(2,4))            -- file_put_contents는 파일을 생성해준다.
+    ?>
+
+5. form과 POST
+
+****html****
+<form action="form.php">
+  <input type="text" name="title" id="title" placeholder="title">
+  <input type="submit" value="submit">
+</form>
+ - 이런식으로 submit 버튼을 누르면 form.php로 넘어간다.
+
+****PHP****
+<?php
+echo $_GET['title'];
+echo "<p>title : ".$_GET['title']."</p>";
+
+ - input의 name값을 받아올수있다.
+
+ - http://localhost/form.php?title=PHP&desc=PHP+is...로 url의 파라미터를 받는다.
+ - file_put_contents('data/'.$_GET['title'], $_GET['desc']);로 파일을 만들 수 있다.
+
+ * form태그의 method를 post형식으로 하면 php에서도 $_POST로 받아와야한다.
+
+
+6. 글생성
+  <form action="/create_proc.php" name="" id="" method="post">
+      <fieldset>
+          <legend>입력폼</legend>
+      <p>
+          <input type="text" name="title" id="title" placeholder="title">
+      </p>
+      <p>
+          <textarea name="desc" id="desc" placeholder="description"></textarea>
+      </p>
+          <p>
+              <input type="submit">
+          </p>
+      </fieldset>
+  </form>
+
+*** /create_proc.php ***
+<?php
+file_put_contents('data/'.$_POST['title'], $_POST['desc']);  -- data폴더에 title, desc를 넣는다.
+header('Location: /index.php?id='.$_POST['title']); -- name="title"이 id인 index.php로 바로 넘
+?>					     어가게 해준다.
+
+7. 글 수정
+isset = 값이 들어왔는지 안들어왔는지 체크해준다.
+<?php if(isset($_GET['id'])) { ?> 		--id값이 들어왔을 때 update a태그가 나온다.
+  <a href="/update.php">update</a>
+  <?php } ?>
+
+******input type="hidden"은 submit 버튼을 눌렀을 때 데이터 전송을 같이 해주고 싶을때 코딩한다
+
+<form action="/update_proc.php" name="" id="" method="post">
+    <input type="hidden" name="old_title" value="<?=$_GET['id']?>">
+    <fieldset>
+        <legend>입력폼</legend>
+        <p>
+            <input type="text" value="<?php print_title()?>" name="title" id="title" placeholder="title">	-- value값으로 작성한 값을 넣어놓을 수 있다.
+        </p>
+        <p>
+            <textarea name="desc" id="desc" placeholder="description"><?= print_desc()?>
+</textarea>	-- textarea안에도 마찬가지로 넣어놨다.
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </fieldset>
+</form>
+
+<?php
+rename('data/'.$_POST['old_title'], 'data/'.$_POST['title']);  -- rename으로 파일명을 바꿀수 있다.
+rename(data폴더안에있는 전 파일명, 현재파일명)
+file_put_contents('data/'.$_POST['title'], $_POST['desc']);
+header('Location: /index.php?id='.$_POST['title']);
+?>
+
+8. 글 삭제
+- 삭제는 form을 거칠 필요가 없다.
+
+<?php
+unlink('data/'.$_GET['id']);		-- unlink는 파일을 없애준다.
+header('Location: index.php')
+
+?>
+
+9. 파일로 모듈화 - require
+리팩토링 : 쓸데없는 코드들을 축약하며 유지보수 할때 편하게 할 수 있다. (중복 제거)
+
+함수들을 lib폴더를 만들어서 print.php에 넣고 
+필요한 곳에서는 <?php require('lib/print.php'); ?>로 불러온다.
+<?php require_once('lib/print.php'); ?> require_once는 중복으로 들어가지는 php들을 무시한다.
+
+10. 보안 XSS
+ - 보안용 함수 htmlspecialchars('내용')은 해킹같은 악성 스크립트를 막을 수 있다.
+ ex) <?php
+    echo htmlspecialchars('<script>alert("babo");</script>');	== script태그가 그대로 나온다.
+    ?>
+
+
+
+
+
+
+
+

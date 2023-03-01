@@ -1,0 +1,8 @@
+$bgcolor: rgba(0,0,0,0.5);
+$gray:#333;
+$white:#fff;
+body{background: $white;}
+.btn1{display: block;width:200px;height:50px;line-height: 50px;font-size:20px;color:$gray;background:$white;border:1px solid $gray;
+  text-align: center;
+      &:hover{background:$bgcolor;color:$white;border:none;}
+}

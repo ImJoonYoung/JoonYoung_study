@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <button type="button" class="accordian accordian1">
+      Section 1
+    </button>
+    <div id="panel" class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum minus veniam non quaerat consequuntur quibusdam, commodi consequatur quisquam harum illo! Nostrum in et non temporibus veritatis error quo culpa natus?</p>
+    </div>
+    <button type="button" class="accordian accordian2">
+      Section 2
+    </button>
+    <div id="panel" class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum minus veniam non quaerat consequuntur quibusdam, commodi consequatur quisquam harum illo! Nostrum in et non temporibus veritatis error quo culpa natus?</p>
+    </div>
+    <button type="button" class="accordian accordian3">
+      Section 3
+    </button>
+    <div id="panel" class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum minus veniam non quaerat consequuntur quibusdam, commodi consequatur quisquam harum illo! Nostrum in et non temporibus veritatis error quo culpa natus?</p>
+    </div>
+  </div>
+</body>
+<style>
+  .wrap .accordian{width:100%;padding:15px 10px;background:#ccc;border:none;text-align:left;cursor: pointer;}
+  .accordian:hover{background:#000;color:#fff;}
+  .panel{padding:10px;max-height:0;overflow: hidden;transition:max-height 0.2s ease-out}
+</style>
+<script>
+    const tabBtn = document.querySelectorAll('.accordian');
+
+    for(let i=0;i<tabBtn.length;i++){
+    tabBtn[i].addEventListener('click', function(){
+      const panel = this.nextElementSibling;
+      if(panel.style.maxHeight){
+        panel.style.maxHeight = null;
+      }else{
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+    }
+</script>
+</html>

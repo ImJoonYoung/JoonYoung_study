@@ -1,0 +1,86 @@
+**************node.js*****************
+
+1. 설치방법
+--인텔리제이로 설치(순서)
+ node.js 설치 -> intellij 에서 새로운 프로젝트 하고 express로 한다음 경로 지정 -> 옵션에서 view Engine은 Ejs로 지정
+
+2. 대체 텍스트
+- console.log('숫자입니다. %d', 20);
+  , 뒤에붙는 숫자가 %d로 대체된다.
+
+- console.log('문자열입니다. %s', '안녕');
+  , 뒤에붙는 문자가 %s로 대체된다.
+
+- var person = {
+  name:'소녀시대',
+  age:20
+  };
+   console.log('Json객체입니다. %j', person);
+, 뒤에붙는 스크립트 객체가 %j로 대체된다.
+
+3. console 함수에 대해 알아보기
+- console.dir( )은 자바스크립트 객체를 보여준다.
+- console.time('duration_time');
+
+   let result = 0;
+    for(let i=0;i<10000;i++){
+    result += i;
+    }
+
+console.timeEnd('duration_time'); 
+
+** console.time()은 사이에있는 반복문이 끝날때까지 걸리는 시간을 체크해준다. key값은 위아래가 똑같아야함
+
+- console.log('파일 이름 : %s', __filename); 내가 지금 작업하고있는곳의 파일 루트를 알려줌
+- console.log('패스 : %s', __dirname); 내가 지금 작업하고있는곳의 폴더를 알려줌
+** __filename, __dirname 은 전역변수 이다.
+
+console.log('argv 속성의 파라미터 수 : ' + process.argv.length);
+console.dir(process.argv);
+- 이것은 객체로 되어있는데 노드가 시작되는 곳과 현재작업하고있는곳의 전체경로가 객체로 되어있다.
+
+4. 노드에서 모듈 사용하기
+- 기능을 각각의 파일로 분리하기
+
+모듈이란 ?
+ 1. 별도의 파일로 분리된 독립기능이다.
+ 2. 모듈을 만들어 놓으면 다른 파일에서 모듈을 불러와 사용할 수 있음
+ 3. CommonJs 표준 스펙을 따르며 exprts 전역 객체를 사용함
+
+ex 1)
+****calc.js****
+exports.add = function (a,b){
+    return a + b;
+};
+ - exprts를 붙여서 함수를 하나 만든다.
+
+****ch02_05.js****
+
+let calc = require('./calc');
+console.log('모듈로 분리한 후 - calc.add : '+calc.add(20,20))
+calc = exports(전역객체)를 불러온다.
+
+ex 2)
+****calc.js****
+let calc = {};
+calc.add = function(a, b){
+    return a + b;
+};
+
+module.exports = calc;
+
+****ch02_06.js****
+let calc2 = require('./calc2');
+
+console.log('모듈로 분리한 후 - calc2.add : ' + calc2.add(30, 30))
+
+ - calc2에 정의된 변수를 require로 module.exports = calc;를 들고와서 속성을 들고 올수 있다.
+
+1. 시스템 - 2. 고급시스템 설정 - 3. 환경 변수
+
+ - 시스템 변수 OS를 확인할 수 있는 방법
+
+
+
+
+

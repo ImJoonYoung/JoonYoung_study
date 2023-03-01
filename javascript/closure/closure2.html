@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function outter(){
+
+    return function(){
+      var title = 'coding everybody';
+      alert(title);
+    }
+  }
+  inner = outter();
+  inner();
+</script>
+</body>
+</html>

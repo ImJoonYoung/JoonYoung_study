@@ -1,0 +1,8 @@
+
+
+@mixin bx($position, $wid, $color){
+  border-#{$position}:$wid solid $color
+}
+
+
+.box{@include bx(bottom, 2px, red)}

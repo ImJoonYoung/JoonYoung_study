@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<div id="result"></div>
+  <input type="text" id="msg" />
+  <input type="button" value="get result" id="getResult" />
+
+<script>
+  $(document).ready(function(){
+  $('#getResult').click(function(){
+    $('#result').html('');
+    $.ajax({
+      url:'result_ajax.php',
+      dataType:'json',
+      type:'POST',
+      data:{msg:$('#msg').val()},
+      success:function(result){
+        if(result['result']==true){
+          $('#result').html(result['msg']);
+        }
+      }
+    });
+  });
+  })
+</script>
+</body>
+</html>

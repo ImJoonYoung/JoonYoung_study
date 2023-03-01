@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./script/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <ul id="checklist">
+        <li target="AA">AA</li>
+        <li target="AB">AB</li>
+        <li target="AC">AC</li>
+        <li target="CD">CD</li>
+        <li target="AE" id="AE">AE</li>
+        <li target="AF">AF</li>
+    </ul>
+    <div class="btnlist">
+        <button type="button" id="btn1">버튼1</button>
+        <button type="button" id="btn2">버튼2</button>
+        <button type="button" id="btn3">버튼3</button>
+        <button type="button" id="btn4">버튼4</button>
+        <button type="button" id="btn5">버튼5</button>
+        <button type="button" id="btn6">버튼6</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+           $('#btn1').on('click', function(){
+               $('[target *="a"]').toggleClass('red');
+           });
+
+            $('#btn2').on('click', function(){
+                $('[target ="aa"]').toggleClass('red');
+            });
+
+            $('#btn3').on('click', function(){
+                $('[target !="aa"]').toggleClass('red');
+            });
+
+            $('#btn4').on('click', function(){
+                $('[target ^="C"]').toggleClass('red');
+            });
+
+            $('#btn5').on('click', function(){
+                $('[target $="f"]').toggleClass('red');
+            });
+            $('#btn6').on('click', function(){
+                $('#AE[target]').toggleClass('red');
+            });
+
+        });
+    </script>
+    <style>
+        .red{background:red;}
+    </style>
+</body>
+</html>

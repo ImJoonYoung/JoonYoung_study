@@ -1,0 +1,270 @@
+ * css 내용 *
+1. 말줄임 할때 쓰는 css들
+    display:-webkit-box;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+ * display:-webkit-box 상자가 가로로 정렬.
+ * display:-webkit-box; -webkit-box-orient:horizontal; 상자 세로정렬
+ * display:-webkit-box; -webkit-box-orient:vertical; 상자 세로정렬
+
+2. css만으로 프린트화면 제어하기
+ * @media print{  } 안에 미디어 쿼리 하듯이 css수정 하면 된다. (ctrl + P)를 누르면 인쇄 작동
+ * page-break-before은 나 자신까지 다음페이지로 넘어가는데 page-break-after는 그 뒤에 태그들부터 다음페이지로 넘어간다.
+ * page-break-before : always는 항상, auto(기본값), avoid는 앞페이지에 넘김을 금지한다.
+ * print-color-adjust : exact는 프린트에서 모든 색을 정확하게 할 것이다 라는 뜻
+ * @page{} : 출력할 종이의 사이즈를 자기가 만들 수 있다.
+ * 프린트용 태그들도 만들 수 있다.
+
+3. input[type="date"] 커스텀 디자인 하기
+
+	html : 	<input type="date" data-placeholder="기간(시작)" required>
+  		<span>~</span>
+  		<input type="date" data-placeholder="기간(종료)" required>
+
+	style : <style>
+  input[type="date"]{
+    position: relative;
+    background:url(./img/calender.svg)no-repeat right 20px center / 15px auto;
+  }
+  input[type="date"]::-webkit-clear-button,
+  input[type="date"]::-webkit-inner-spin-button{
+    display: none
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:transparent;
+    color:transparent;
+    cursor: pointer
+  }
+
+input[type="date"]::before{
+  content: attr(data-placeholder);
+  width:100%;
+}
+input[type="date"]:valid::before{
+  display: none;
+}
+input[data-placeholder]::before{
+  color:#BABABA;
+  font-size: 14px;
+  padding-left:30px;
+}
+  </style>
+
+3. reset, normalrize, style.css 
+
+ * reset.css = 브라우저마다 각기 다른 결과 화면들이 나오는데 요소들별로 특징들을 초기화 해준다.
+
+ * normalrize.css = 브라우저들만의 오차를 줄이고 버그들도 줄이면서 스타일을 재정리 한다.
+
+4. css vw단위
+ 1920 위주로 해상도 잡기
+ * 100vw (viewport width)
+
+vw 계산할 때는 ex) 50rem : 50 x 100 / 1920 = 2.6041vw 이런식으로 계산한다.
+
+(100 * 현재정보 ) / 기준해상도의 가로값 == vw 
+
+5. 웹 호환성(크로스 브라우징)
+
+
+/* number 스피너 제거 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {-webkit-appearance:none;}
+input[type="number"] {-moz-appearance:textfield;}
+/* webkit은 edge,chrome,safari moz는 firefox처리 */
+
+/* search x표시 제거 */
+input::-ms-clear,
+input::-ms-reveal {display: none}
+/* ms는 마이크로소프트 처리 */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {display: none;}
+
+/* textarea resize 없애기 */
+textarea{resize: none}
+
+::-webkit-input-placeholder {color:red;}
+/* 엣지,크롬,사파리 */
+:-ms-input-placeholder {color:blue}
+/* 마이크로 소프트 */
+::-moz-placeholder{color:orange}
+/* 파이어폭스 */
+::placeholder{color:pink}
+/* 크롬,파이어폭스,엣지 적용됨 */
+
+6. before, after
+ - before와 after은 inline 요소이다.
+ - 글씨를 쓸 수 있다.
+ - before, after에 이미지를 삽입 할수 있다.
+ * div:before{content:url(img/calender.svg);} (크기 조절이 불가능 하다)
+ - 숫자를 순서대로 넣을 수 있다.
+ * ul{counter-reset: li} -> li한테 숫자를 넣겠다는 의미
+ * ul li:before{content:counter(li);counter-increment: li;}
+ -----태그들을 넣을 수 없다.-----
+
+7. 세로형 막대그래프 만들기
+ - position:absolute;left:0;right:0; = width:100%와 같은 의미이다.
+
+8. css로 삼각형 만들기
+ 8-1. 첫번째 삼각형 만들기 
+ - border-width:5px; border-style:solid; border-color:red transparent transparent transparent;
+ * 이런식으로 삼각형 만들기 
+
+ 8-2. 두번째 삼각형 만들기
+ - width:10px;height:10px;background:#fff;transform:translateX(-50%) rotate(45deg);border:1px solid red;border-left:none;border-top:none;
+ * 이런식으로 하면 위에가 빈 삼각형이 만들어진다.
+
+9. 텍스트만 구성된 리스트 빠르기 코딩하기
+padding-left와 text-indent로 컨트롤한다.
+
+10. css3 서로 다른 배경색 표현하기
+   10-1. body{background:linear-gradient(to bottom, #e61c3e, #e61c3e 30px, #ff1e44 230px, #212121 230px, #212121);} 도착지점을 적어줘야한다.
+   10-2. .another_background1{height:500px;background:linear-gradient(to right, blue, blue calc(50% + 162px), gray calc(50% - 162px), gray)} 오른쪽으로 하면서 계산기css가능
+
+11. w3c vaildator 오류 모음
+ 11-1. 주석을 닫지 않았을때 (End of file inside comment)
+ 11-2. 쌍따옴표를 닫지 않았을 경우 (End of file reached when inside an attribute value. ignoring tag)
+ 11-3. 주석처리를 제대로 안했을경우(Bohus comment)
+ 11-4. 인라인요소 자식으로 블록요소가 있는 경우(Element div not allowed as child of element span in this context)
+ 11-5. 닫는 태그가 없을 때 (Unclosed element div)
+ 11-6. 닫기태그 중첩관계가 잘못된 이유 (stray end tag)
+ 11-7. 열림태그가 없는경우 (stray end tag div)
+ 11-8. 속성과 값사이의 = 을 주지않는경우(Attribute class"aaa"not allowed on element div at this point. )
+ 11-9. 속성을 중복 제공 했을 경우(Duplicate attirbute class)
+ 11-10. 정의된 속성값을 잘못 정의한 경우(Bad value true for attribute checked on element input)
+ 11-11. 속성에 공백을 제공한 경우(Attribute ty not allowed on element input at this point.)
+ 11-12. 아이디 값을 중복 선언한 경우(Duplicate ID a)
+
+12. UI 관련 사용하는 용어들
+snb : sub navigation bar
+depth : 메뉴의 깊이(대메뉴, 중메뉴, 소메뉴)로 단계별로 나뉨
+location, bread crumbs : 현재위치를 알려주는 영역
+tree menu : 관리시스템 형태의 폴더로 계속 들어가는 메뉴
+quick menu : 스크롤을 해도 고정되어있는 메뉴
+icon, bullet : icon은 의미자체가 있고, bullet은 의미가 없다.
+
+13. 프로젝트 진행중 사용하는 용어들
+SB : storyboard (화면설계서)
+WBS : Work Breakdown Struncture (프로젝트 범위와 스케줄을 세부적으로 분할한 것)
+as-is : 개선되기 전 현재 상태
+to-be : 개선된 후의 상태
+CMS : Content Management System (전문지식없이 사이트운영관리 할 수 있는 솔루션, 웹에디터를 이용한 콘텐츠 관리)
+PG : Payment Gateway (인터넷상에 금융기관 거래대행 서비스 신용카드, 계좌이체, 핸드폰결제, ARS결제등 소액결제 대행 서비스)
+PL : project Leader (파트 책임자, 파트 의사소통, 파트 협업 등을 하는 사람)
+과업지시서 : 고객이 제작(발주업체가 입찰업체에게 웹서비스를 제작해 달라는 요구사항서)
+RFP : Request For Proposal (제안요청서 발주자가 특정 과제의 수행에 필요한 요구사항을 체계적으로 정리하여 제시하는 서류)
+TFT : Task Force Team (일을 추진할때 부서별 선발된 인재들이 임시팀을 만들어 활동하는 것) 
+구축 : 신규 웹서비를 제작하는일
+고도화 : 기존서비스의 시스템을 업그레이드 하는일
+
+14. css 텍스트 효과 4가지
+ 14-1 (text-gradient)
+박스안에 background를 먼저넣고 그 박스 안에 이 코드를 넣는다.IE엣지 이상 적용가능
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+ 14-2 (text-stroke)
+ - text-shadow{1px 1px 0 색상} 을 방향별로 반복해서 사용한다.
+text-shadow: 1px 0 0 red,
+                 0 1px 0 red,
+                 -1px 0 0 red,
+                 0 -1px 0 red,
+                 -1px -1px 0 red,
+	     1px 1px 0 red,
+    	     1px -1px 0 red,
+    	     -1px 1px 0 red
+	;
+  14-3(svg)
+
+  14-4 (3D 효과)
+ - text-shadow를 1px, 2px씩 늘려가면서 사용한다.
+text-shadow: 0.5px 0.5px 0 red,
+                 1px 1px 0 orange,
+                 1.5px 1.5px 0 yellow,
+2px 2px 0 green,2.5px 2.5px 0 blue, 3px 3px 0 darkblue, 3.5px 3.5px 0 purple;
+
+15. css팁
+ - 소수점은 0을 안써도 된다.
+ - 마지막엔 세미콜론을 쓰지 않는다.
+ - 여백은 한 방향으로 준다 margin보단 padding 쓰기
+ - 먼저 padding주고 다음 margin으로 준다. 단 배경, 선이 있을 때는 margin으로 준다.
+ - 한방향으로만 그림자 넣기 (box-shadow: 0 5px 5px -5px #000)  *4번째는 그림자 크기
+ - 높이 100% 넣기
+ - <div data-text = "텍스트">
+   css div:after {content:attr(data-text)}
+
+16. px, em, red 차이점
+
+em 계산법 
+body{font-size:20px}
+div{font-size:1.5em}
+1.5 x 20 = 30px
+내가 px을 em으로 계산할 때는 15px을 하고싶을 때 15 / 20 = 0.75em 이런식으로
+em은 자기 부모의 부모의 부모 이런식으로 그 위에 상속을 받는다.
+rem은 절대값 최상위 부모의 사이즈에 속성을 받는다
+
+17. 테이블 thead 고정하기 or tbody 스크롤하기
+ - position:sticky
+ - explorer은 안된다.
+ - 꼭 좌표값을 써야 한다. (top,left,right,bottom)
+ - sticky의 부모중에 overflow:hidden이 있으면 안된다.
+
+18. input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-text-fill-color:$white;
+  border-radius:$size5;
+  background:none !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input이 자동완성일 때 작업할 수 있는 css
+
+19. iframe
+
+ - frameborder="0" : iframe border값을 없앤다
+ - <a href="http://medi34.annis1.gethompy.com/" target="site">11번가 바로가기</a>
+   <iframe src="http://smallwave.co.kr" name="site" frameborder="0"></iframe>
+  * ifame name과 a태그의 target을 같이하면 a태그를 눌렀을때 iframe 링크가 바뀐다.
+
+20. 웹폰트 적용과 활용
+무료 폰트 사이트 : https://noonnu.cc/
+
+21. 규칙적인 코드정리하기
+ - 선택자는 밑으로 대각선방향으로 내려가면서 작성하자
+ - 코드의 순서를 본인이 규칙을 지키자.
+
+22. 퍼블리셔 제작팁
+.agree{counter-reset:num;} 			-- 변수명을 지정하여 counter를 reset한다.
+.agree > h2:before {content:"제" counter(num) "조";counter-increment:num 1}  -- before에 content:""를 하면 string(문자열)이고 변수명을 사용할수 있다. counter-increment:num 1은 초기화한 변수명을 1씩 증가시킨다.
+
+23. Background 한줄로 모아서 써보기~ 스크롤 할때 배경이미지 고정시키기
+background-attachment:fixed;    --  스크롤을 하였을때 배경이미지는 고정이 된다.
+background-origin:padding-box|border-box|content-box|initial
+ - 어디에서 잘릴지 지정하는 속성이다. 
+background-clip:padding-box|border-box|content-box|initial
+ - 요소의 배경이 테두리, 안쪽여백, 콘텐츠 상자중 어디까지 차지할 지 지정한다.
+
+**background-origin과 background-clip은 같이 사용한다.**
+
+23. table요소 css
+tr보단 th,td가 먼저 border속성이 들어간다.
+table이 border-collapse가 separte가 되면 tr엔 margin, padding이 들어가지지 않는다.
+tr에 배경색이 tbody, tfoot, thead보다 먼저 들어간다.
+th,td에서만 패딩이 들어간다.
+
+24. placeholder의 모든 것
+ - text-area placeholder : placeholder 두줄은 textarea만 가능하며 엔티티코드 &#13(Window), &#10(Mac)
+
+
+

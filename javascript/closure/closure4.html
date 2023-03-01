@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var arr = []
+  for(var i = 0; i < 5; i++){
+    arr[i] = function(id){
+          return function(){
+          return id;  //내부함수가 외부함수의 지역변수에 접근할수있다.
+        }
+    }(i);   //function(id)에서 id값으로 매개변수가 된다.
+  }
+  for(var i in arr) {
+    console.log(arr[i]());
+  }
+</script>
+</body>
+</html>

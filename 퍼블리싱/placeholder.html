@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .place{position:relative}
+        .place>span{
+            position:absolute;left:4px;top:3px;font-size:10px;
+            opacity: 1;transition:all .3s;z-index:-1
+        }
+        .place input{
+            height:30px;line-height:30px;
+            background:transparent;
+        }
+        .edit + span{
+            opacity: 0;
+            left:-20px
+        }
+    </style>
+</head>
+<body>
+    <div class="place">
+        <input type="text" onkeyup="addClass(this)">
+        <span>두줄짜리<br>텍스트</span>
+    </div>
+</body>
+<script>
+    function addClass(_obj) {
+        let val = _obj.value.length;
+        if(val > 0){
+        _obj.classList.add('edit');
+        }else{
+            _obj.classList.remove('edit');
+        }
+    }
+</script>
+</html>

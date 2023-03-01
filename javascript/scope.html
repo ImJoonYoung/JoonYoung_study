@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var vscope = 'global';
+  function fscope(){
+    vscope = 'local'
+    alert(vscope);
+  }
+  function fscope2(){
+    vscope = 'global'
+    alert(vscope);
+  }
+  fscope();
+  fscope2();
+</script>
+</html>

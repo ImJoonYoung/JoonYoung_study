@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*객체를 만드는 과정 1*/
+    var person = {}; // object
+    person.name = 'joonyoung';
+    person.introduce = function(){
+        return 'My name is ' + this.name;
+    }
+    document.write(person.introduce() + '<br/>');
+
+    /*객체를 만드는 과정2*/
+    var person1 = {
+        'name' : 'joonyoung',
+        'introduce' : function() {
+            return 'My name is ' + this.name;
+        }
+    }
+
+    var person2 = {
+        'name' : 'yujung',
+        'introduce' : function() {
+            return 'My name is ' + this.name;
+        }
+    }
+
+    document.write(person1.introduce());
+</script>
+</body>
+</html>

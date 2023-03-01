@@ -1,0 +1,150 @@
+*************scss************
+
+1. scss 변수
+
+ - 주석처리 : 한줄 주석( // ), 여러줄 주석( /* */ )
+ 한줄 주석은 css로 넘어가면 사라지게 된다.
+
+ - 변수 시작은 $로 시작한다.
+ - &은 가상선택자이다 { }안에 이어서 작성해야한다.
+
+  .btn1{display: block;width:200px;height:50px;line-height: 50px;font-size:20px;color:  $gray;background:$white;border:1px solid $gray;
+  text-align: center;
+      &:hover{background:$bgcolor;color:$white;border:none;}
+  }
+
+
+2. 사스 선택자
+ - 자식선택자 : 제일 부모 쓰고 그 밑에 자식을 쓰고 싶으면 { }안에 작성하면 된다.
+ - { }안에 들여쓰기 하면서 &는 그 선택자를 얘기한다.
+
+3. mixin, include
+
+@mixin test{
+  width:100px;height:100px;border:1px solid red;  -- mixin은 css keyframe 같은 느낌
+}
+@mixin clear{
+  content:"";display:block;clear:both;
+}
+
+div:after{@include clear}   -- include로 keyframe 네임을 불러 올수 있다
+p{float:left; @include test;}
+
+ - 매개변수
+
+@mixin border($color){
+  border:1px solid $color;
+}
+ div{ @include border(red)}
+
+ - 매개변수 복수로 하기
+
+@mixin box($w, $h){
+  width:$w; height: $h;
+}
+@mixin border($color){
+  border:1px solid $color;
+}
+div{@include box(100%, 500px);@include border(red)}
+
+ 4. #{} 문자보간(문자열)에 대해서
+
+-  $bx:box;
+
+div.#{$bx}{border:1px solid red;}    -- div.$bx는 오류이므로 #{$bx}로 문자열을 처리한다
+
+ 5. 사스 @for 반복문에 대해서
+
+ - @for $i from 1 to 7   -- 7번 미만이므로 1부터 6까지 가능하다.
+
+ 6. 사스 @each 반복문에 대해서
+
+****html****
+<h1 class="ico_book">제목1</h1>
+<h2 class="ico_zoom">제목2</h2>
+<h3 class="ico_phone">제목3</h3>
+
+
+****scss****
+ 1. @each $var in book, zoom, phone{
+    .ico_#{$var}{
+    background:#007aff;
+    }
+  }
+ - $var 임의의 변수 안에 book,zoom,phone을 넣어서 ico_안에 객체를 집어넣는다.
+
+ 2. $heading : (
+        h1:30px,
+        h2:20px,
+        h3:15px
+  );
+
+@each $ele, $fs in $heading {
+  #{$ele}{
+    font-size:$fs
+    }
+  }
+ - $heading에 객체처럼 집어넣고 $ele, $fs 임의의 변수를 놓고 $heading 객체 안에 
+   $ele 안에 font-size $fs를 넣는 방식이다.
+
+7. @extend에 대해서
+
+%name {font-size:18px;color:blue}
+
+.a{@extend %name}
+.b{@extend %name}
+.c{@extend %name}
+
+ - 재활용하는걸로 쓰이는데 같이 쓰면 묶여서 쓰인다
+ ** css
+.c, .b, .a {
+  font-size: 18px;
+  color: blue;
+}
+
+8. 조건문에 대해서
+ex1)
+
+@mixin btn_radius($h, $radius:true){		-- 들어가는 매개변수가 true일때
+height:$h; padding:0 20px; line-height:$h;text-align:center;color:#fff;background:blue;
+@if $radius {				-- 들어가는 매개변수가 true일때
+  border-radius:$h / 2;
+}@else{					-- 들어가는 매개변수가 false일때
+  border:1px solid red
+}
+
+ex2)
+
+@mixin posi($x, $y, $z){			
+  position: absolute;left: $x; top:$y; z-index:$z;
+  @if $x == 50% and $y == 50%{	-- x,y가 50%일때
+  transform: translate(-50%, -50%);
+}@else if($x == 50%){
+  transform: translateX(-50%);
+}@else if($y == 50%){
+  transform: translateY(-50%);
+}
+}
+
+div{
+  width:300px;height:300px;
+  color:#fff;
+  background:#000;
+  @include posi(50%, null, 99)	--값이 없는것은 null값
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

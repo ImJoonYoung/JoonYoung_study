@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@each $var in book, zoom, phone{
+  .ico_#{$var}{
+    background:#007aff;
+  }
+}
+
+$heading : (
+        h1:30px,
+        h2:20px,
+        h3:15px
+);
+
+@each $ele, $fs in $heading {
+  #{$ele}{
+    font-size:$fs
+  }
+}

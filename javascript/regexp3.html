@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+  var content = '네이버 : https://www.naver.com 입니다.'
+  var result= content.replace(urlPattern, function(url){
+    return '<a href="'+url+'">'+url+'</a>';
+  });
+  document.write(result);
+</script>
+</body>
+</html>

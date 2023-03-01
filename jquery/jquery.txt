@@ -1,0 +1,130 @@
+**************jquery**************
+ 
+1.선택자
+ - li:eq(2) == 인자와 인덱스가 동일한 엘리먼트를 찾아내는 선택자
+ - li:gt(1) == 인자보다 인덱스가 큰 엘리먼트를 찾아내는 선택자
+ - li:lt(2)  == 인자보다 인덱스가 작은 엘리먼트를 찾아내는 선택자
+ - li:even == 홀수의 인덱스값을 가진 엘리먼트
+ - li:odd == 짝수의 인덱스값을 가진 엘리먼트
+ - [target*="BC"] == 속성의 값에 주어진 문자열이 포함되는 엘리먼트를 찾아내는 선택자
+ - [target="DEFG"] == 속성의 값과 주어진 문자열이 일치하는 엘리먼트를 찾아내는 선택자
+ - [target!="DEFG"] == 속성의 값과 주어진 문자열이 일치하지 않는 엘리먼트를 찾아내는 선택자
+ - [target^="B"] == 속성의 값으로 주어진 문자열이 처음 등장하는 엘리먼트를 찾아내는 선택자
+ - [target$="H"] == 속성의 값으로 주어진 문자열이 마지막으로 등장하는 엘리먼트를 찾아내는 선택자
+ - [target] == 속성이 존재하는 엘리먼트를 찾아내는 선택자
+ - [target] [id] == target속성과 id속성들이 같이 존재하는 선택자
+
+2. chain(사슬)
+
+/*제이쿼리*/
+$(document).ready(function (){
+    $('#tutorial').attr('href', "http://jquery.org").attr('target', '_blank').css('color', 'red');
+ });
+
+ - #tutorial에 링크를 바꾸고 타켓, css를 바꿀 수 있다.
+
+/*자바스크립트*/
+    let turorial = document.getElementById('tutorial');
+    tutorial.setAttribute('href','http://jquery.org');
+    tutorial.setAttribute('target','_blank');
+    tutorial.style.color = 'red';
+
+jquery chain의 장점 : 코드가 간결해진다.
+
+3. 이벤트
+ - .bind() : 이벤트를 설치할 때 사용하는 메소드
+
+ ex)   function clickHandler(e){
+    alert('thank you');
+  };
+  $(document).ready(function (){
+    $('#click_me').bind('click', clickHandler);                == bind로 함수를 같이 묶을 수 있다.
+    $('#remove_event').bind('click', function(e){
+      $('click_me').unbind('click', clickHandler);
+    });
+    $('#trigger_event').bind('click', function(e){
+      $('#click_me').trigger('click');                           == 강제로 실행
+    });
+
+
+  });
+
+4. element의 제어
+
+ -	.append( ) 선택된 인자 안에 넣는다.
+ -	.after( ) 선택된 인자 바로 다음에 넣는다.
+ -	.wrap( ) 선택된 인자를 감싼다.
+ -	.remove( ) 선택된 인자
+ - 	.replaceAll(교체될 element) ex) $("<b>Paragraph</b>").replaceAll("p");  p태그를 <b>Paragraph</b>로 교체한다.
+
+5. 폼(form)
+ - 서버로 데이터를 전송하기 위한 수단
+
+1.
+<p>
+  <input type="text">
+  <span></span>
+</p>
+<script>
+  $("input").focus(function(){
+    $(this).next('span').html('focus');
+  }).blur(function (){
+    $(this).next('span').html('blur');
+  }).change(function (e){              -- input이 change 바뀔때
+    alert('change!!'+$(this).val());    -- alert창으로 value값 나오게 $(this)는 $(e.target)과 동일
+  }).select(function (){	       -- value값이 선택되었을때
+    $(this).next('span').html('select');	
+  })
+</script>
+
+2.
+<p>
+  Type 'correct' to validate
+</p>
+<form action="javascript:alert('success!');">
+  <div>
+    <input type="text">
+
+    <input type="submit">
+  </div>
+</form>
+<span></span>
+<script>
+  $('form').submit(function (){            -- form이 submit을 하는 순간
+    if($("input[type='text']").val() == "correct"){	-- input text의 value값이 correct이면
+      $('span').html("validated...").show();
+      return true;			-- return false를 하게되면 다음으로 안넘어가진다.
+    }
+    $('span').html("Not valid!").show().fadeOut(1000);
+    return false
+  });
+</script>
+
+6. 탐색
+ - 체인 컨텍스트를 유지하면서 제어의 대상이 되는 엘리먼트를 변경하는 기법
+
+1. .add(Selector) - 엘리먼트를 추가한다.
+2. .children(Selector) - 자식 엘리먼트만 선택한다.
+3. .first() - 첫번째만 선택한다.
+4. .next() - 다음엘리먼트가 선택된다.
+5. .prev() - 그 이전 엘리먼트가 선택된다.
+6. .parent() - 선택자 부모가 선택된다.
+7. .find(Selector) - 선택자의 자손 엘리먼트를 선택한다.
+8. .last() - 마지막 엘리먼트가 선택된다.
+9. .end() - 이전 체인 컨텍스트로 돌아간다.
+10. .filter(Selector) - 선택된 엘레먼트 중에 그 한개만 선택된다.
+11. .siblings() - 선택된 엘레먼트의 형제들을 선택한다.
+12. .nextAll() - 각각의 엘레먼트에 대한 이전 형제 엘리먼트 전부를 선택한다.
+13. .closet() - 가장가까운 선택자 조상 엘레먼트를 탐색한다.
+14. .andSelf() - 현재 엘레먼트에 이전 엘레먼트를 더해준다.
+15. .each(function(index, Element)) - 현재 엘레먼트에 반복 작업을 실행한다.
+16. .eq(index) - 현재 엘레먼트에 index에 해당하는 엘레먼트를 선택한다.
+
+
+
+
+
+
+
+
+

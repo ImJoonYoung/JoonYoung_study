@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="./script/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<p>
+  <input type="text">
+  <span></span>
+</p>
+<script>
+  $("input").focus(function(){
+    $(this).next('span').html('focus');
+  }).blur(function (){
+    $(this).next('span').html('blur');
+  }).change(function (e){
+    alert('change!!'+$(this).val());
+  }).select(function (){
+    $(this).next('span').html('select');
+  })
+</script>
+</body>
+</html>
