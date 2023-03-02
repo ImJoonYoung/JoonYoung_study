@@ -26,36 +26,10 @@
       age : 25,
       sex : "Male"
     }
-<<<<<<< HEAD
-
- - 새로운 프로퍼티 생성
-  ** userData.name 또는 userData["name"] -> Jason이나온다 key값을 .에 붙여준다. / []사용은 braket notation이라 한다.
-  ** userData.email = "jason@test.com" 으로 key, value값을 넣어줄 수 있다. / Dot notation
-  
- Method
- 1. Object.keys() 
-  let jasonData = {
-    name : 'Jason',
-    age : "25",
-    gender : "Man"
-  }
-  document.write(Object.keys(jasonData));   // 배열안에 문자열 데이터를 리턴한다.
-  * jasonData의 key값을 반환해준다.
-
- 2. Object.values()
- let jasonData = {
-    name : 'Jason',
-    age : "25",
-    gender : "Man"
-  }
-  document.write(Object.values(jasonData));   // 배열안에 문자열 데이터를 리턴한다.
-  * jasonData의 value값을 반환해준다.
-=======
   ** 불러오고 싶을때는 userData.name 또는 userData["name"] -> Jason이나온다 key값을 .에 붙여준다. / []사용은 braket notation이라 한다.
   ** 추가하고 싶을때는 userData.email = "jason@test.com" 으로 key, value값을 넣어줄 수 있다.
   
 
->>>>>>> 995a761 (임준영 공부파일)
 
 
 
