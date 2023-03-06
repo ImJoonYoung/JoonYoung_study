@@ -426,6 +426,32 @@ function person(){}
   let p4 = new Person('yujung');
   document.write(p4.introduce()+'<br>');
 
+ - 함수와 this
+ ** this는 함수 내에서 함수 호출 맥락을 의미한다. 상황에 따라서 달라진다는 의미이다, this는 함수와 객체의 관계를 연결시켜주는 역할을 한다.
+ ex)   function func(){
+    if(window === this){
+      document.write('window === this');
+    }
+  }func()     // this는 window와 같다
+
+ - 메소드와 this
+ ** 객체의 소속인 메소드의 this는 그 객체를 가르킨다.
+ ex) let o ={
+    func : function(){      // func는 윈도우라는 함수의 method 이다.
+      if(o === this){
+        document.write('o===this')
+      }
+    }
+  }
+  o.func()
+
+ - 생성자와 this
+
+ 
+
+
+
+
 
 
 

@@ -267,4 +267,3 @@ th,td에서만 패딩이 들어간다.
  - text-area placeholder : placeholder 두줄은 textarea만 가능하며 엔티티코드 &#13(Window), &#10(Mac)
 
 
-

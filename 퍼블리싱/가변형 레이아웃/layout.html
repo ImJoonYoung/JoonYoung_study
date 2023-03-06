@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    * {padding:0;margin:0;box-sizing:border-box}
+    body{padding:40px}
+    div{border:1px solid red}
+    ul{list-style:none}
+    h2{margin:30px 0 20px}
+  </style>
+</head>
+<body>
+  <h2>
+    position
+  </h2>
+
+  <style>
+    .position{position:relative;padding:0 100px 0 200px}
+    .position>div:first-child{position:absolute;top:0;left:0;width:200px}
+    .position>div:last-child{position:absolute;top:0;right:0;width:100px}
+  </style>
+
+  <div class="position">
+    <div>고정</div>
+    <div>유동</div>
+    <div>고정</div>
+  </div>
+
+  <h2>테이블</h2>
+
+  <style>
+  .table{display:table;width:100%;border-collapse: collapse;border-spacing:0}
+  .table>div{display:table-cell}
+  .table>dlv:first-child{width:200px}
+  .table>dlv:last-child{width:100px}
+  </style>
+
+  <div class="table">
+    <div>고정</div>
+    <div>유동</div>
+    <div>고정</div>
+  </div>
+
+
+<h2>
+  flex ie10
+</h2>
+
+  <style>
+  .flex{display:flex}
+  .flex>div{flex:1}
+  .flex>div:first-child{flex:none;width:200px}
+  .flex>div:last-child{flex:none;width:100px}
+  </style>
+
+<div class="flex">
+  <div>고정</div>
+  <div>유동</div>
+  <div>고정</div>
+</div>
+
+  <h2>
+    calc ie9
+  </h2>
+
+  <style>
+    .calc:after{content:'';display: block;clear:both}
+    .calc>div{float:left;width:calc(100% - 300px)}
+    .calc>div:first-child{width:200px}
+    .calc>div:last-child{width:100px}
+  </style>
+
+  <div class="calc">
+    <div>고정</div>
+    <div>유동</div>
+    <div>고정</div>
+  </div>
+
+<h2>
+  grid edge
+</h2>
+
+  <style>
+    .grid{display:grid;grid-template-columns:200px auto 100px} /* 열을 총 3개로 나눈다 */
+  </style>
+
+<div class="grid">
+  <div>고정</div>
+  <div>유동</div>
+  <div>고정</div>
+</div>
+
+</body>
+</html>

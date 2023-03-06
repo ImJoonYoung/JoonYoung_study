@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let o ={
+    func : function(){      // func는 윈도우라는 함수의 method 이다.
+      if(o === this){
+        document.write('o===this')
+      }
+    }
+  }
+  o.func()
+</script>
+</body>
+</html>
