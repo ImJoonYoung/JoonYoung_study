@@ -446,7 +446,22 @@ function person(){}
   o.func()
 
  - 생성자와 this
+ ex ) <script>
+    let funcThis = null;
 
+    function Func(){
+        funcThis = this;    // 함수를 호출하면 그 함수는 윈도우의 객체가 된다.
+    }
+    let o1 = Func();
+    if(funcThis === window){
+        document.write('window <br />');
+    }
+
+    let o2 = new Func();    // 생성자 안에서는 생성자가 만든 객체를 가리킨다.
+    if(funcThis === o2) {
+        document.write('o2 <br />');
+    }
+</script>
  
 
 
