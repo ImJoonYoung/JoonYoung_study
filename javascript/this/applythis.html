@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var o = {}
+  var p = {}
+  function func(){
+    switch(this){     //this로 들어가는 인자가 같을때 실행된다. if문 대체제
+      case o:
+        document.write('o<br />');
+        break;
+      case p:
+        document.write('p<br />');
+        break;
+      case window:
+        document.write('window<br />');
+        break;
+    }
+  }
+  func();
+  func.apply(o);
+  func.apply(p);
+</script>
+</body>
+</html>

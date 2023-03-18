@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<script>
+  let output = function() {
+    console.log('안녕하세요');
+  }
+  const dateForMaker = function() {
+    console.log(document.querySelector('#targetYear').value)   //value를 작성하면 input에 적혀있는 value값을 들고 올 수 있다.
+  }
+</script>
+
+<input type="text" value="" id="targetYear" class="target_year"/>
+<button type="button" onclick="dateForMaker()">버튼</button>
+</body>
+</html>
