@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newDate 함수</title>
+
+</head>
+<body>
+<script>
+
+    const dateForMaker = function() {
+        const inputYear = document.querySelector('#targetYear').value;  //value를 작성하면 input에 적혀있는 value값을 들고 올 수 있다.
+        const inputMonth = document.querySelector('#targetMonth').value;
+        const inputDay = document.querySelector('#targetDay').value;
+
+        //const dateFormat = inputYear + '-' + inputMonth + '-' + inputDay;    // 방법 1
+        const dateFormat = `${inputYear}-${inputMonth}-${inputDay}`             //방법 2번 백틱으로 작성 (템플릿 리터럴)
+
+        return dateFormat;
+    }
+    const countDate = function() {
+        const targetDateInput = dateForMaker();
+        const nowDate = new Date();
+        const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);   // 날짜 객체 데이터를 직접 입력 가능, setHours(0,0,0,0)은 자정을 기준으로 설정한다.
+        const remaining = (targetDate - nowDate) / 1000 // 오늘 날짜에서 목표날짜를 빼서 1000으로 나누면 목표날짜까지 몇초 남았는지 알 수 있다.
+
+        const remainDate = Math.floor(remaining / 3600 / 24); // Math.floor는 소수점 이하의 수는 내림해주는 역할이다.
+        const remainHours = Math.floor(remaining / 3600) % 24;
+        const remainMin = Math.floor(remaining / 60) % 60;
+        const remainSec = Math.floor(remaining) % 60;
+
+        console.log(remainDate, remainHours, remainMin, remainSec)
+    }
+</script>
+
+<input type="text" value="" id="targetYear" class="target_year"/>
+<input type="text" value="" id="targetMonth" class="target_year"/>
+<input type="text" value="" id="targetDay" class="target_year"/>
+
+<button type="button" onclick="countDate()">버튼</button>
+</body>
+</html>
