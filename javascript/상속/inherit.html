@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.name=null;
+    Person.prototype.introduce = function(){
+        return 'My name is '+this.name;
+    }
+    var p1 = new Person('egoing');
+    document.write(p1.introduce()+"<br />");
+</script>
+</body>
+</html>
