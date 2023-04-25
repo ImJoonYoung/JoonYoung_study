@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var arr = new Array('seoul','new york','ladarkh','pusan', 'Tsukuba');
+        function getRandomValueFromArray(array){
+            var index = Math.floor(array.length*Math.random());
+            return array[index];
+        }
+        document.write(getRandomValueFromArray(arr));
+    </script>
+</body>
+</html>
+
+<!--
+    표준 내장 객체는 자바스크립트가 기본적으로 가지고있는 객체들을 의미한다.
+    Math.floor()는 소수점을 정수로 나눠준다.
+    Math.random()은 숫자를 랜덤으로 뽑아준다.
+
+ -->
