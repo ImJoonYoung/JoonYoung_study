@@ -13,12 +13,15 @@
         const inputMonth = document.querySelector('#targetMonth').value;
         const inputDay = document.querySelector('#targetDay').value;
 
-        const dateFormat = inputYear + '-' + inputMonth + '-' + inputDay;
+       // const dateFormat = inputYear + '-' + inputMonth + '-' + inputDay;
+        const dateFormat = `${inputYear}-${inputMonth}-${inputDay}`
+        return dateFormat;
     }
 
     const counterMaker = function() {
+        const targetDateInput = dateForMaker();
         const nowDate = new Date();
-        const targetDate = new Date(dateFormat);
+        const targetDate = new Date(targetDateInput).setHours(0,0,0,0);
         const remaining = (targetDate - nowDate) / 1000;
 
         const remainingDate = Math.floor(remaining / 3600 / 24);
