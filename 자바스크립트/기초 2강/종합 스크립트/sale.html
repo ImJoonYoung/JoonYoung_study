@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>할인 가격 프로그램</title>
+</head>
+<body>
+        <div id="content">
+            <img src="img/sale.png" alt="세일 이미지"/>
+            <ul>
+                <li>
+                    <label for="originPrice">원래 가격</label>
+                    <input type="text" id="originPrice" />원
+                </li>
+                <li>
+                    <label for="salePrice">할인율</label>
+                    <input type="text" id="salePrice" />%
+                </li>
+            </ul>
+            <div>
+                <button type="button" onclick="showPrice();">할인 가격 계산하기</button>
+            </div>
+            <span id="realPrice">
+
+            </span>
+        </div>
+        <script>
+            function showPrice(){
+                let orPrice = document.getElementById('originPrice').value;
+                let saPrice = document.getElementById('salePrice').value;
+                let resultPrice;
+                if(orPrice > 0 && saPrice > 0){
+                    let savePrice = orPrice * (saPrice/100);
+                    resultPrice = orPrice - savePrice;
+                }
+                else{
+                    alert('입력값이 0보다 커야합니다.');
+                    return false;
+                }
+
+                document.getElementById('realPrice').innerHTML = '상품의 총 금액은 ' + resultPrice + '입니다.'
+            }
+        </script>
+</body>
+</html>
