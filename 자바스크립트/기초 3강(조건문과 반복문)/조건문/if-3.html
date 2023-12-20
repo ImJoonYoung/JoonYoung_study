@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>조건문-3</title>
+</head>
+<body>
+    <script>
+        const userId = window.prompt("아이디를 입력하세요.");
+        const userPw = window.prompt("패스워드를 입력하세요.");
+
+        //값 비교
+        if(userId == "joonyoung" && userPw == 'kks180912@'){
+            alert(userId + "님이 로그인 하셨습니다.");
+        }else if(userId == 'joonyoung319'){
+            alert("패스워드가 잘못 되었습니다.");
+        }else{
+            alert("아이디가 잘못 입력되었습니다.");
+        }
+    </script>
+
+</body>
+</html>
