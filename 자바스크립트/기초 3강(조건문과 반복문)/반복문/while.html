@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>난수를 발생시켜 맞추는 게임</title>
+</head>
+<body>
+    <script>
+            let low = 0; // 범위의 최솟값
+            let high = 0; // 범위의 최댓값
+            let card = 0; // 정답
+            while(true) {
+                let count = 0; // 사용자의 시도 횟수
+                low = 0;
+                high = 99;
+                card = Math.floor(Math.random()*100) // 소수점 자리는 버려라
+                alert("수를 결정하였습니다! 맞춰보세요!");
+
+                while(true){
+                    let n =0;
+                    alert(low + "-" + high);
+                    count++;
+                    alert("시도횟수 : " + count + "번째");
+
+                    n = prompt("숫자를 입력하세요!");
+                    if(n > high || n < low){
+                        alert("값의 범위는 0~99까지 입니다.");
+                    }else{
+                        if(n == card){
+                            alert("정답입니다.");
+                            break;
+                        }else if(n > card){
+                            alert("정답보다 작습니다.");
+                            high = n;
+                        }else{
+                            alert("정답보다 큽니다.");
+                            low = n;
+                        }
+
+                    }
+                }
+                alert("시도횟수는" + count + "입니다.");
+                let con = confirm("다시 하시겠습니까?")
+                if(con === false){
+                    alert('고생하셨습니다.');
+                    break;
+                }
+            }
+
+
+
+    </script>
+
+
+</body>
+</html>
