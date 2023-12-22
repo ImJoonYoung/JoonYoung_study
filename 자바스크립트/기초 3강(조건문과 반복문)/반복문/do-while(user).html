@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>do-while 실질적 사용 예제</title>
+</head>
+<body>
+    <script>
+        let inputString = null;
+
+        alert("메세지를 입력하세요");
+        alert("프로그램을 종료하려면 q를 입력하세요.");
+
+        do{
+            inputString = window.prompt("메시지를 입력하세요.");
+            document.write(inputString + "<br/>");
+
+
+        }while(inputString != 'q'); /*q를 입력하면 false가 된다.*/
+
+
+    </script>
+
+
+</body>
+</html>
