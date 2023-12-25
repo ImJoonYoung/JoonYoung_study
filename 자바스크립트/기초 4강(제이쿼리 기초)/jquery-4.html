@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글자 숨기기, 보이기 예제</title>
+  <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script>
+    $(document).ready( () => {
+      $('#showText').on('click', () => {
+        $('div').show(300);
+      });
+      $('#hideText').on('click', () => {
+        $('div').hide(300);
+      });
+    })
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div>안녕하세요</div>
+  <button id="showText">글자 보이기</button>
+  <button id="hideText">글자 숨기기</button>
+
+</body>
+</html>

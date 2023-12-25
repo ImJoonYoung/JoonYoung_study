@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery로 색상 바꾸기</title>
+  <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script>
+    $(document).ready( () => {
+      $('#menu2').find('li').css({
+        color:'red',
+        marginTop:'30px',
+        marginLeft:'20px'
+      })
+
+    })
+  </script>
+</head>
+<body>
+  <div>
+    <ul class="menu" id="menu1">
+      <li>김밥</li>
+      <li>비빔밥</li>
+      <li>제육덮밥</li>
+      <li>오징어덮밥</li>
+      <li>돌솥비빔밥</li>
+    </ul>
+    <ul class="menu" id="menu2">
+      <li>김밥2</li>
+      <li>비빔밥2</li>
+      <li>제육덮밥2</li>
+      <li>오징어덮밥2</li>
+      <li>돌솥비빔밥2</li>
+    </ul>
+  </div>
+</body>
+</html>

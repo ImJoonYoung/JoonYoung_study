@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>지구본 움직이기</title>
+  <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script>
+    $(document).ready( () => {
+      let $earth = $('#panel>img');
+      $('#btnStart').on('click', () =>{
+        $earth.animate({
+          left:'480px',
+          rotate:'720deg'
+        },3000)
+      });
+
+    })
+  </script>
+  <style>
+    img{width:100%}
+    #panel{
+      position:relative;
+      width:600px;height:300px;
+      border:1px solid #999
+    }
+    #panel>img{position:absolute;left:0;width:80px}
+    #bar{position:absolute;left:50px;top:75px;width:500px;height:15px;background:#f33}
+    #btn{position:absolute;bottom:-50px;left:50%;transform:translateX(-50%)}
+  </style>
+</head>
+<body>
+  <div id="panel">
+    <div id="bar"></div>
+    <img src="images/earth.jpg" alt="지구본 이미지" />
+    <div id="btn">
+      <button type="button" id="btnStart">지구본 움직이기</button>
+    </div>
+  </div>
+
+</body>
+</html>
