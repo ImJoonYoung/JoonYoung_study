@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 3</title>
+</head>
+<body>
+<script>
+    function sum() {
+        let sum = 0;
+        let count = 1;
+        while(true) {
+            let num = parseInt(window.prompt("숫자를 입력하세요", 1));
+            if(num == 0){
+                document.write('함수를 종료합니다.');
+                return;
+            }
+
+            sum += num;
+            document.write(count + ". " + sum + "<br/>");
+            count++
+        }
+    }
+    sum();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 4</title>
+</head>
+<body>
+<script>
+   let name = "global";
+
+   function func1(){
+       let name = "local1";
+       document.write(name + "<br/>")
+   }
+   function func2(){
+       let name = "local2";
+       document.write(name + "<br/>")
+   }
+   function func3(){
+       let name = "local3";
+       document.write(name + "<br/>")
+   }
+   document.write(name + "<br/>")
+</script>
+
+</body>
+</html>
