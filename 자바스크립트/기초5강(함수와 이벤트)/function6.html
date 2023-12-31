@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 6</title>
+</head>
+<body>
+<style>
+    .img_container{position:relative}
+    .img_container>img{position:absolute;left:0;top:0;width:120px}
+</style>
+<script>
+    /*이벤트로 작업*/
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('#container1 > img');
+        const btnStart = document.getElementById('btnStart');
+
+        btnStart.addEventListener('click', () =>{
+            let length = images.length;
+
+            for(let i=0;i<images.length;i++){
+                let img = images[i];
+
+                let x = 100 + ((i % 3) * 200);
+                let y = 100 + (parseInt(i/3) * 200);
+
+                img.style.left = x + "px";
+                img.style.top = y + "px";
+
+            }
+
+        })
+
+    })
+</script>
+
+    <button id="btnStart">Start</button>
+    <div class="img_container" id="container1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+        <img src="img/1.jpg" alt="이미지1">
+    </div>
+</body>
+</html>
