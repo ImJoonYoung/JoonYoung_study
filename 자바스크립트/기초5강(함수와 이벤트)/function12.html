@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 12</title>
+    <script src="lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!--ready() / load()의 차이점
+    ready() : 이벤트는 클라이언트가 사이트를 방문할 때 요청한 HTML 문서 객체의 로딩이 끝나면 이벤트 실행
+    load() : 이벤트는 외부에 연동소스 (iframe, img, video 등)의 로딩이 끝나면 이벤트를 실행한다.-->
+
+    <script>
+        $(() => {
+            $(window).on('load', () => {
+                let w = $('.img').width();
+                alert(w)
+            })
+
+
+        })
+    </script>
+
+    <p>
+        <!--외부에 있는 리소스-->
+        <img src="https://place-hold.it/500X500" class="img">
+    </p>
+</body>
+</html>

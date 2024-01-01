@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 11</title>
+    <script src="lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        $(() => {
+            $('.btn1').on('click', () => {
+                $('.p1').css({color:'red'});
+            });
+
+            $('.btn2').on({
+                "mouseover focus" : () =>{
+                    $('.p2').css({
+                        color: "#0f0"
+                    });
+                },
+                "mouseout blur" : () =>{
+                    $('.p2').css({
+                        color: "#000"
+                    });
+                }
+            });
+
+            /*이벤트 제거할때 사용*/
+            $('.btn1').off('click');
+
+        })
+    </script>
+
+    <p class="p1">반갑습니다.</p>
+    <button type="button" class="btn1">버튼1</button>
+    <p class="p2">안녕하세요.</p>
+    <button type="button" class="btn2">버튼2</button>
+
+</body>
+</html>
