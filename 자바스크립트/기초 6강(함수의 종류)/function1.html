@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수-1(함수리터럴)</title>
+
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <script>
+    //변수에다가 함수를 저장하는 경우
+    function hello(name) {
+      document.write(name + "님 환영합니다.  <br/>")
+    }
+    hello('임준영1');
+
+    let fhello = hello; //함수 리터럴--함수를 변수에 저장한다
+    fhello('임준영2')
+
+    //익명함수를 변수에다가 대입--변수가 함수명처럼 사용이 된다
+    let func = function (){
+      document.write("함수 리터럴");
+    }
+
+    func();
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수-3(리턴 값으로 함수를 이용)</title>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+    <button type="button" id="btnStart">시작</button>
+  <script>
+      function hi(){
+          document.write("안녕하세요, 반갑습니다!");
+      }
+       $(document).ready(() => {
+          $('#btnStart').click(hi);
+
+       });
+  </script>
+
+
+</body>
+</html>

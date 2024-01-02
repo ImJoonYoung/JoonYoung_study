@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수-2(매개변수 값으로 함수를 이용)</title>
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <script>
+      //아래 hi1, hi2는 일반적 함수이다.
+    function hi1(){
+        alert("안녕하세요1");
+    }
+    function hi2(){
+        alert("안녕하세요2");
+    }
+    //exec함수는 매개변수 값으로 함수를 받고있다
+    function exec(func){
+        func();
+    }
+    exec(hi1);
+    exec(hi2);
+
+
+  </script>
+
+
+</body>
+</html>
