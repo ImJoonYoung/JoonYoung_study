@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수-6(익명함수를 이용한 프로그램)</title>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <style>
+        .container{margin-top:15px;padding:10px;border:1px solid #007bff}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        let count = 0; //전역변수 선언
+        let container = null;
+
+        container = document.querySelector('.container');
+        const node = document.createElement('p');
+        const textNode = document.createTextNode(count + ' 안녕하세요. 반갑습니다.');
+        node.appendChild(textNode);
+        container.appendChild(node);
+        count++;
+        document.getElementById('btnPrint').addEventListener('click', () => {
+            const node = document.createElement('p');
+            const textNode = document.createTextNode(count + ' 안녕하세요. 반갑습니다.');
+            node.appendChild(textNode);
+            container.appendChild(node);
+            count++;
+        })
+
+
+        })
+
+    </script>
+</head>
+<body>
+<button type="button" id="btnPrint">출력하기</button>
+<div class="container">
+
+</div>
+
+</body>
+</html>

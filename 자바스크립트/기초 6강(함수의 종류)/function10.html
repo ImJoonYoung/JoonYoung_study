@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수-10(중첩함수의 변수의 범위)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+        let a = 100;
+        let b = 200;
+        let c = 300;
+
+        function outter(){
+            let b = 2000;
+            let c = 3000;
+
+            function inner(){
+                let c = 30000;
+                document.write("7.a = " + a + "<br/>");
+                document.write("8.b = " + b + "<br/>");
+                document.write("9.c = " + c + "<br/>");
+            }
+
+            document.write("4.a = " + a + "<br/>");
+            document.write("5.b = " + b + "<br/>");
+            document.write("6.c = " + c + "<br/>");
+
+            inner();
+
+        }
+
+        document.write("1.a = " + a + "<br/>");
+        document.write("2.b = " + b + "<br/>");
+        document.write("3.c = " + c + "<br/>");
+
+        outter();
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
