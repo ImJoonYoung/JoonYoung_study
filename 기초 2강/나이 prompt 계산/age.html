@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>age</title>
+</head>
+<body>
+<style>
+    body{text-align:center}
+    .btn{display:inline-block;padding:10px 15px;margin:50px 0;color:#fff;font-weight:bold;background:#007bff;border:none;outline:none}
+</style>
+
+    <button class="btn" onclick="calc();">
+        나이 계산
+    </button>
+    <div id="result" class="show">(결과값 표시)</div>
+
+<script>
+    function calc(){
+       let  date = new Date()
+        let currentYear = date.getFullYear();
+        let birthYear = prompt("태어난 년도를 입력하세요.", "ex)2018")
+        let age = currentYear - birthYear + 1;
+        document.querySelector('#result').innerHTML = '당신의 나이는 ' + age + '세 입니다.';
+    }
+</script>
+</body>
+</html>
