@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-3(콜백함수 풀이)</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script>
+    /*일반적인 함수를 선언하고 호출하는 형태*/
+    function add(n1, n2, callback){
+        let temp = n1 + n2;
+        callback(temp);
+    }
+    function result(value){
+        document.write("결과 : " + value);
+    }
+    add(50, 100, result);
+
+
+</script>
+
+
+</body>
+</html>

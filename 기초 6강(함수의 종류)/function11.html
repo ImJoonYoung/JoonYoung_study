@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-1</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <script>
+      /*일반 함수를 사용하게 되면 로직구현, 로직처리 부분까지 아래와 같이 있으므로
+      * 코드의 중복도 있고 유지보수에 어렵다.*/
+
+    function calc1(op, num1, num2){
+      switch(op){
+        case "+" :
+          result = num1 + num2;
+          break;
+        case "-" :
+          result = num1 - num2;
+          break;
+        case "*" :
+          result = num1 * num2;
+          break;
+        case "/" :
+          result = num1 / num2;
+          break;
+        default :
+          result = "지원하지 않는 연산자입니다.";
+      }
+      document.write("두개의 수의 연산은" + result + "<br/>");
+    }
+
+
+    function calc2(op, num1, num2){
+      switch(op){
+        case "+" :
+          result = num1 + num2;
+          break;
+        case "-" :
+          result = num1 - num2;
+          break;
+        case "*" :
+          result = num1 * num2;
+          break;
+        case "/" :
+          result = num1 / num2;
+          break;
+        default :
+          result = "지원하지 않는 연산자입니다.";
+      }
+      document.write("정답 : " + result + "<br/>");
+    }
+    calc1("-", 500, 300);
+    calc2("*", 500, 300);
+  </script>
+
+
+</body>
+</html>

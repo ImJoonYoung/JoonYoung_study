@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-2(콜백함수 풀이)</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <script>
+      /*일반 함수를 사용하게 되면 로직구현, 로직처리 부분까지 아래와 같이 있으므로
+      * 코드의 중복도 있고 유지보수에 어렵다.*/
+
+      /*매개변수로 callback이 들어와서 결과값을 callback함수에 매개변수로 하여 또다른 함수를 호출하게 한다.*/
+    function calc(op, num1, num2, callback){
+      switch(op){
+        case "+" :
+          result = num1 + num2;
+          break;
+        case "-" :
+          result = num1 - num2;
+          break;
+        case "*" :
+          result = num1 * num2;
+          break;
+        case "/" :
+          result = num1 / num2;
+          break;
+        default :
+          result = "지원하지 않는 연산자입니다.";
+      }
+      /*콜백함수 호출*/
+      callback(result);
+    }
+    calc("-", 500, 300, print1);
+
+    function print1(result){
+        document.write("두 수의 연산 : " + result + "<br/>");
+        print2(result);
+    }
+
+      function print2(result){
+          document.write("두 수의 연산2 : " + result + "<br/>");
+
+      }
+  </script>
+
+
+</body>
+</html>
