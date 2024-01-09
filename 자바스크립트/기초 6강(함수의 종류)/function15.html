@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>클로저 함수-1</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+
+    </style>
+
+    <script>
+        /*일반함수에서의 지역변수는 함수가 종료되면 같이 메모리에서 제거가 된다.*/
+        /*function add(){
+            let cnt = 0;
+            cnt++;
+            return cnt;
+        }
+        document.write("1번째 cnt 값 : " + add() + "<br/>")
+        document.write("2번째 cnt 값 : " + add() + "<br/>")
+        document.write("3번째 cnt 값 : " + add() + "<br/>")
+        document.write("4번째 cnt 값 : " + add() + "<br/>")
+        document.write("5번째 cnt 값 : " + add() + "<br/>")*/
+
+        /*클로저를 이용한 함수*/
+        function createCounter(){
+            let cnt = 0;
+            function add(){
+                cnt ++;
+                return cnt;
+            }
+            return add;
+        }
+        let counter = createCounter(); //함수 리터럴
+        document.write("1번째 cnt 값 : " + counter() + "<br/>")
+        document.write("2번째 cnt 값 : " + counter() + "<br/>")
+        document.write("3번째 cnt 값 : " + counter() + "<br/>")
+        document.write("4번째 cnt 값 : " + counter() + "<br/>")
+        document.write("5번째 cnt 값 : " + counter() + "<br/>")
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-4(콜백함수 풀이)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(document).ready(() => {
+            /*콜백함수 풀이*/
+            checkCount(showAlert);
+
+            function showAlert(){
+                alert('끝입니다.');
+                return false;
+            }
+
+            function checkCount(callback){
+                let count = 0;
+                $('#btnStart').on('click', () =>{
+                    count++;
+                    if(count == 5){
+                        callback();
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+    <button type="button" id="btnStart">시작</button>
+
+</body>
+</html>

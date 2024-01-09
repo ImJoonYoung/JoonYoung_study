@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-5(콜백함수 풀이)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        ul{display:flex;align-content:center;padding:0;list-style:none}
+        ul>li{margin:0 10px;cursor: pointer;}
+        .active{background:#000;color:#fff}
+    </style>
+    <script>
+        $(document).ready(() => {
+            /*탭메뉴 코드 실행될 수 있도록 함수 호출*/
+            tabMenu('.tab_menu', onSelectItem);
+        });
+            function tabMenu(event, callback){
+                let $tabmenu = null;
+                let $menuItems = null;
+                /*선택한 탭메뉴*/
+                let $selectMenuItem = null;
+
+                function init(event){
+                    $tabmenu = $(event);
+                    $menuItems = $tabmenu.find('li');
+
+                }
+
+                function initEvent(){
+                    $menuItems.on('click', function() {
+                        /*현재 선택된 li 웹요소를 매개변수로 지정*/
+                        selectMenuItem($(this));
+                    })
+                }
+
+                function selectMenuItem(item){
+                    if($selectMenuItem !== null)
+                        $selectMenuItem.removeClass('active');
+
+                    $selectMenuItem = item;
+                    $selectMenuItem.addClass('active');
+
+                    if(callback !== null){
+                        callback($selectMenuItem.index());
+                    }
+                }
+                init(event)
+                initEvent();
+
+            }
+
+            function onSelectItem(index){
+                $('#index').text(index);
+            }
+
+    </script>
+</head>
+<body>
+    <ul class="tab_menu">
+        <li class="menu_itm">1</li>
+        <li class="menu_itm">2</li>
+        <li class="menu_itm">3</li>
+        <li class="menu_itm">4</li>
+        <li class="menu_itm">5</li>
+        <li class="menu_itm">6</li>
+    </ul>
+<div>
+    선텍한 인덱스 값 : <span id="index"></span>
+</div>
+
+</body>
+</html>
