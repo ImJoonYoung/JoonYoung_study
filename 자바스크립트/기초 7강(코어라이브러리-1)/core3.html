@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>타이머 함수-3(clearInterval)</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    div{display:flex;justify-content:center;align-items:center;width:300px;height:300px;font-size:3.125rem;border:1px solid #000}
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let content = document.getElementById('increNum');
+      let num = 0;
+      let stopBtn = document.getElementById('stopBtn');
+      let interTime;
+
+      /*addNum = setInterval(() => {
+        num++
+        content.innerHTML = num;
+      }, 1000)
+
+        stopBtn.addEventListener('click', () => {
+            clearInterval(addNum)
+        })*/
+
+        function addNum(){
+            num++;
+            content.innerHTML = num;
+        }
+        function timeNum(){
+            interTime = setInterval(addNum, 1000);
+        }
+        timeNum();
+        stopBtn.addEventListener('click', () => {
+            clearInterval(interTime);
+        })
+
+
+
+
+    })
+  </script>
+  <div id="increNum">
+    0
+  </div>
+<button type="button" id="stopBtn">
+ Stop
+</button>
+</body>
+</html>

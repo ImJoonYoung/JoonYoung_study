@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>타이머 함수-1(setInterval)</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    div{display:flex;justify-content:center;align-items:center;width:300px;height:300px;font-size:3.125rem;border:1px solid #000}
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let content = document.getElementById('increNum');
+      let num = 0;
+
+      //익명함수 풀이
+      /*setInterval( () => {
+        num++
+        content.innerHTML = num;
+      }, 1000)*/
+
+      //일반 함수 풀이
+      function addNum(){
+        num++
+        content.innerHTML = num;
+      }
+      setInterval(addNum, 1000)
+
+    })
+  </script>
+  <div id="increNum">
+    0
+  </div>
+</body>
+</html>
