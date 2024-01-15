@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>지구본 게임</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .container{position:relative;max-width:500px;height:600px;margin-top:20px;border:2px solid red}
+    .earth-icon{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:block;width:50px;height:50px;background:#ff0;border-radius:50%}
+    #score{font-size:25px;font-weight:bold;transition:all .3s}
+  </style>
+</head>
+<body>
+  <script>
+      //지구본을 클릭하면 점수가 변하도록 만든다.
+    document.addEventListener('DOMContentLoaded', () => {
+        // 점수 저장 변수
+        let cnt = 0;
+        // 점수 출력 부분
+        let score = document.getElementById('score');
+        // 플래그 변수 선언
+        let play = true;
+
+        document.getElementById('earth').addEventListener('click', () => {
+            //점수가 증가
+            if(play){
+            cnt ++;
+            score.innerHTML = cnt;
+            }
+        })
+        const moveEarth = setInterval(() => {
+            let x = Math.random() * 150;
+            let y = Math.random() * 150;
+            document.getElementById('earth').style.cssText = "transform:translate("+x+"px, "+y+"px);"
+        },1000);
+
+        setTimeout(() => {
+            play = false;
+            clearInterval(moveEarth);
+            document.getElementById('earth').style.cssText = "transform:translate(-50%, -50%);"
+            alert("게임이 종료되었습니다.");
+
+        }, 5000)
+
+
+    })
+  </script>
+
+    <div>
+        현재 점수 : <span id="score">0</span>
+    </div>
+    <div class="container">
+        <i id="earth" class="earth-icon"></i>
+    </div>
+</body>
+</html>
