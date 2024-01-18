@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>원 이동</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .container{max-width:600px;margin:30px auto}
+    .panel{position:relative;display:flex;justify-content:center;align-items:center;height:500px;border:1px solid #ccc}
+    .bar{position: relative;width:90%;height:2px;background:#707070}
+    .circle{position:absolute;left:0;top:-35px;width:30px;height:30px;background:#007bff;border-radius:50%}
+  </style>
+</head>
+<body>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let circle = document.querySelector('.circle');
+        let btnStart = document.getElementById('btnStart');
+        let btnStop = document.getElementById('btnStop');
+        // 이동할 거리
+        let x = 0;
+        let step = 50;
+        let timerId = 0;
+
+        btnStart.addEventListener('click', () => {
+            start();
+        })
+
+        function start(){
+            if(timerId == 0){
+                timerId = setInterval(function (){
+
+                    moveCircle();
+                }, 100);
+            }
+        }
+
+        btnStop.addEventListener('click', () => {
+            circle.style.cssText = "left :0px";
+            step = 50;
+            x = 0;
+            stop();
+        })
+
+        function stop(){
+            clearInterval(timerId);
+            timerId = 0;
+        }
+
+        function moveCircle(){
+            x += step;
+
+            if(x > 480)
+                step = -50;
+
+            if(x < 50)
+                step = 50;
+
+            circle.style.cssText = "left :" + x + "px";
+        }
+
+
+
+
+
+
+
+
+    })
+  </script>
+
+    <div class="container">
+       <div class="panel">
+
+           <span class="bar">
+               <span class="circle"></span>
+           </span>
+       </div>
+        <div class="btn_wrap">
+            <button type="button" id="btnStart">시작</button>
+            <button type="button" id="btnStop">멈춤</button>
+        </div>
+    </div>
+</body>
+</html>
