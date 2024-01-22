@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>롤링 배너</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .img_container{position:relative;max-width:600px;height:350px;margin:0 auto}
+    .img_container>img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+  </style>
+</head>
+<body>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let imgContainer = document.querySelector('.img_container');
+        let index = 0;
+        let imgList = ['acrd1.png', 'acrd2.png', 'acrd3.png', 'acrd4.png', 'acrd5.png', 'acrd6.png'];
+        setInterval(() => {
+            imgContainer.querySelector('img').setAttribute('src', 'img/' + imgList[index]);
+            index++;
+            if(index > 5){
+                index = 0
+            }
+        }, 1000)
+
+
+    })
+  </script>
+  <div class="img_container">
+      <img src="img/acrd1.png" alt="">
+  </div>
+</body>
+</html>
