@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Math 클래스</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    #panel{margin:50px;font-size:30px;font-weight:bold}
+  </style>
+</head>
+<body>
+  <script>
+    let info = null;
+    document.addEventListener('DOMContentLoaded', () => {
+        info = document.getElementById('panel');
+        showRandom();
+        setInterval(showRandom, 1000);
+    })
+    function showRandom(){
+        let num = Math.random() * 100;
+        info.innerHTML = Math.floor(num);
+
+    }
+  </script>
+
+    <div id="panel">
+        0
+    </div>
+</body>
+</html>
