@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이동 게임</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .score_wrap{margin:50px}
+    .score_wrap #score{display:inline-block;margin-left:10px;font-weight:bold}
+    .panel{position:relative;max-width:600px;height:500px;margin-left:50px;border:1px solid #707070}
+    .panel .circle{position:absolute;top:50%;left:300px;transform:translateY(-50%);width:25px;height:25px;background:red;border-radius:50%}
+  </style>
+</head>
+<body>
+  <script>
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            let cnt = 0;
+            let score = document.getElementById('score');
+            let play = false;
+            let timerId = 0;
+            let circle = document.querySelector('.circle');
+            let btnStart = document.getElementById('btnStart');
+
+
+            btnStart.addEventListener('click', () =>{
+                startGame();
+            });
+
+            circle.addEventListener('click', () => {
+                if(play == false){
+                    '';
+                }else{
+                    addScore();
+                }
+
+            })
+
+            function startGame(){
+                if(play == false){
+                    checkEndGame();
+                    play = true;
+                    timerId = setInterval(function(){
+                        moveCircle();
+                    }, 1000);
+                }
+            }
+
+            function moveCircle(){
+                let x = parseInt(Math.random()*575);
+                let y = parseInt(Math.random()*475);
+
+                circle.style.left = x+"px";
+                circle.style.top = y+"px";
+            }
+
+            function addScore(){
+                cnt++;
+                score.innerHTML = "현재 점수 : " + cnt;
+            }
+
+            function checkEndGame(){
+                setTimeout(() => {
+                    play = false;
+                    clearInterval(timerId);
+                    alert("게임 종료!");
+                    circle.style.left = "50%";
+                    circle.style.top = "50%";
+                }, 5000)
+
+                setTimeout(() => {
+                    score.innerHTML = "현재 점수 : 0";
+                    cnt = 0;
+                }, 7000)
+            }
+
+        })
+
+
+
+
+  </script>
+    <div class="score_wrap">
+        <button type="button" id="btnStart">게임 시작</button>
+        <span id="score">현재 점수 : 0</span>
+    </div>
+    <div class="panel">
+        <span class="circle"></span>
+    </div>
+
+</body>
+</html>
