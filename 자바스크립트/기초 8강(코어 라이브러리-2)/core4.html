@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>String 클래스-4(slice(), substr())</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let str1 = "korea";
+
+            //slice() 메서드는 시작 인덱스와 끝 인덱스(미포함)-1까지 문자열을 잘라내는 역할을 해준다
+            /*let str2 = str1.slice(2,4);*/
+
+            //substr() 메서드는 시작 인덱스에서 두번째 매개변수의 길이만큼 잘라서 출력해준다.
+            let str2 = str1.substr(1,14);
+            document.write(str2);
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

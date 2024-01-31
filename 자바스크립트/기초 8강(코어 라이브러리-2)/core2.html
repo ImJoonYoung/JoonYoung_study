@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>String 클래스-2(charAt())</title>
+    <style>
+        #print{width:500px;height:250px;text-align:center;line-height:250px;margin:50px auto;border:1px solid #707070}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let str = window.prompt("문자열을 입력해주세요.");
+            let print = document.getElementById('print');
+            let index = 0;
+            let timerId = setInterval(() => {
+                let ch = str.charAt(index);
+                print.innerHTML = ch;
+                index++;
+            },1000)
+
+            if(index > str.length){
+                clearInterval(timerId)
+            }
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>
