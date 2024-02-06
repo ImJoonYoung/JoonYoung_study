@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>String 클래스-7(왼쪽만 공백제거)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let output = document.getElementById('output');
+            let input = document.getElementById('input');
+
+            document.querySelector('#confirm').addEventListener('click', ()=> {
+                //입력한 값을 알아내기
+                let value = input.value;
+
+                //앞쪽 공백 제거
+                let result = ltrim(value);
+                output.innerHTML = result;
+            })
+        })
+
+        function ltrim(str){
+            if(str.length <= 0){
+                return "";
+            }
+            let index;
+            let firstChar = str.charAt(0);
+            if(firstChar != " "){
+                return str;
+            }
+            for(index=1;index<str.length;index++){
+                let ch = str.charAt(index);
+                if(ch != " "){
+                    break;
+                }
+            }
+            let result = str.slice(index, str.length);
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="input" />
+        <button type="button" id="confirm">확인</button>
+    </div>
+    <textarea name="" id="output" cols="30" rows="10">실행결과</textarea>
+</body>
+</html>
