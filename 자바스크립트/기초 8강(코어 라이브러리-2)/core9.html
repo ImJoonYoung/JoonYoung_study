@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>String 클래스-8(정규표현식 공백 제거)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let str = '  안녕하세요  반갑습니다  문자열을 자릅니다  ';
+            console.log(str);
+            //전체 공백 제거는 자바스크립트의 정규표현식을 이용
+            console.log(str.replace(/(\s*)/g, ""));
+            //앞 공백제거
+            console.log(str.replace(/^\s*/, ""));
+            //뒷 공백 제거
+            console.log(str.replace(/\s*$/, ""));
+        })
+
+        // 정규표현식의 종류
+        /*
+        ^ : 입력의 시작을 찾음
+        $ : 입력의 끝을 찾음
+        * : 앞에오는 문자를 0번 이상 찾는다.(ex "zo*"를 입력하면 "z"나 "zoo"를 찾는다.)
+        + : 앞에오는 문자를 1번 이상 찾는다.(ex "zo+"를 입력하면 "z"를 찾지 않고 "zoo"를 찾는다.)
+        ? : 앞에오는 문자를 0번 이상 찾는다.(ex "a?ve?"를 입력하면 "naver"에 있는 "ve"를 찾는다.)
+        \s : 공백문자를 찾는다.
+        \S : 공백문자가 아닌것을 찾는다.
+        g : 전역검색을 칭함
+        */
+    </script>
+</head>
+<body>
+
+</body>
+</html>
