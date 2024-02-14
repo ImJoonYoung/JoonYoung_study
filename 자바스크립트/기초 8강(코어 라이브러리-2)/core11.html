@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Date 클래스(현재날짜 출력)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let print = document.getElementById('print');
+
+                let date = new Date();
+                let year = date.getFullYear();
+                let month = date.getMonth(); //0(1월)~11(12월)
+                let date1 = date.getDate();
+                let day = date.getDay(); //0(일요일)~6(토요일)
+                let arrDay = ["일","월","화","수","목","금","토"];
+
+                print.innerHTML = year + "년 " + (month+1) + "월 " + date1 + "일 " + arrDay[day] + "요일";
+
+
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>

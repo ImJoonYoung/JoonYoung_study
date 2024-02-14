@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Date 클래스(현재시간 출력)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let print = document.getElementById('print');
+
+
+            setInterval(function(){
+                let date = new Date();
+                let hour = date.getHours();
+                let minute = date.getMinutes();
+                let second = date.getSeconds();
+                let mssecond = date.getMilliseconds();
+                print.innerHTML = hour + "시 " + minute + "분 " + second + "." + mssecond + "초";
+            },1000)
+
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>
