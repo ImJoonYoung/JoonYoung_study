@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Date 클래스를 이용한 시계만들기</title>
+    <style>
+
+    </style>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let objClock = document.getElementById('clock');
+            clock();
+
+        function clock(){
+
+            function addZero(value){
+                if(value < 10){
+                    value = "0" + value;
+                }
+                return value;
+            }
+            // 현재 시간 출력하는 중첩함수
+            function showClock(){
+                let date = new Date();
+                let hours = addZero(date.getHours());
+                let minute = addZero(date.getMinutes());
+                let second = addZero(date.getSeconds());
+                let time = hours + ":" + minute + ":" + second;
+                objClock.innerHTML = time;
+            }
+            showClock();
+
+            setInterval(function (){
+                showClock();
+            }, 1000)
+        }
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id="clock">
+        00:00:00
+    </div>
+</body>
+</html>
