@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Array클래스(배열요소 첫번째, 마지막, n번째 추가하기)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            let menus = ["menu1", "menu2", "menu3", "menu4"]
+            document.write('실행 전 : ' + menus.join(",") + "<br/>");
+            //배열의 마지막 부분에 배열 요소를 추가함.
+            menus.push("menu5")
+            document.write('push() 실행 후 : ' + menus.join(",") + "<br/>");
+
+            //배열의 첫 부분에 배열 요소를 추가함.
+            menus.unshift("menu0")
+            document.write('unshift() 실행 후 : ' + menus.join(",") + "<br/>");
+
+            //splice()는 첫번째는 순서 / 두번째는 카운트 / 세번째는 추가할 텍스트다
+            menus.splice(2, 0, "menu1.5");
+            document.write('splice() 실행 후 : ' + menus.join(",") + "<br/>");
+
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
