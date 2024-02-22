@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Array클래스(배열요소 첫번째, 마지막, n번째 삭제하기)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            let menus = ["menu1", "menu2", "menu3", "menu4"];
+            let menus2 = ["menu1", "menu2", "menu3", "menu4"];
+            document.write('실행 전 : ' + menus.join(",") + "<br/>");
+            //배열에서 첫 번쩨 요소를 삭제하기
+            menus.shift();
+            document.write("첫번째 배열요소 삭제 : " + menus.join(",") + "<br/>");
+            //배열에서 마지막 요소를 삭제하기
+            menus.pop();
+            document.write("마지막 배열요소 삭제 : " + menus.join(",") + "<br/>");
+            //splice() : 배열에서 n번째 요소를 삭제하기, 추가할때 두번째 인자값은 0으로 설정
+            // 두번째 카운트는 0이 아니면 삭제하는 갯수이다.
+            menus2.splice(1, 2);
+            document.write("n번째 배열요소 삭제 : " + menus2.join(",") + "<br/>");
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Array클래스(숫자 정렬)</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+           let numbers = [6, 7, 1, 10, 8, 77];
+           document.write("실행 전 : " + numbers.join() + "<br/>");
+           numbers.sort(function(a, b){
+               if(a > b)
+                   return +1;
+               else
+                   return -1;
+           });
+            document.write("오름차순 실행 : " + numbers.join() + "<br/>");
+
+            numbers.sort(function(a, b){
+                if(a > b)
+                    return -1;
+                else
+                    return +1;
+            });
+            document.write("내림차순 실행 : " + numbers.join() + "<br/>");
+
+
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
