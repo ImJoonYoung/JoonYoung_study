@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 배열 출력</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            let arrImg = ['acrd1.png', 'acrd2.png', 'acrd3.png', 'acrd4.png', 'acrd5.png', 'acrd6.png'];
+            let i = 0;
+            setInterval(function (){
+                i++;
+                if(i>=arrImg.length) {
+                    i = 0;
+                }
+                document.querySelector('.img_box > img').setAttribute('src', 'img/' + arrImg[i]);
+            }, 1000)
+
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+    <div class="img_box">
+        <img src="img/acrd1.png" alt="acrd 이미지" />
+    </div>
+</body>
+</html>
