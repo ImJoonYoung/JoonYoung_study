@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-5(이벤트 추가)</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          let imgList = document.querySelectorAll('.img_list > img');
+          let viewBtn = document.querySelector('.view_btn');
+          let viewCon = document.querySelector('.view_detail > ul')
+          let isOpen = false;
+
+          for(let i=0;i<imgList.length;i++){
+            imgList[i].addEventListener('click', (imgChange))
+          }
+
+          viewBtn.addEventListener('click', () => {
+            if(isOpen == false){
+              viewBtn.innerHTML = '상세 설명 닫기';
+              viewCon.style.display = 'block';
+              isOpen = true;
+            }else{
+              viewBtn.innerHTML = '상세 설명 보기';
+              viewCon.style.display = 'none';
+              isOpen = false;
+            }
+          })
+
+        })
+
+        function imgChange(){
+          let imgVisual = document.querySelector('#imgLoad > img');
+          let imgSrc = this.getAttribute('src');
+          imgVisual.setAttribute('src', imgSrc);
+          console.log(imgSrc);
+        }
+    </script>
+    <style>
+      .img_wrap{display:flex;flex-direction:column;max-width:800px;padding:20px;margin:0 auto;border:1px solid #707070}
+      .img_wrap>div{display:flex;gap:30px}
+      .img_list{display:flex;gap:20px;margin-top:25px}
+      .img_list img{width:25%;cursor:pointer}
+      #desc{min-width:300px;margin-left:20px}
+    </style>
+</head>
+<body>
+  <div class="img_wrap">
+    <h2>국회의사당</h2>
+    <div>
+      <div id="imgLoad">
+        <img src="img/acrd1.png" alt="이미지 1">
+        <div class="img_list">
+          <img src="img/acrd2.png" alt="이미지2">
+          <img src="img/acrd3.png" alt="이미지3">
+          <img src="img/acrd4.png" alt="이미지4">
+        </div>
+      </div>
+      <div id="desc">
+        <h2 class="bright">Information</h2>
+        <p>
+          기계사진입니다.
+          <span class="sub_desc">
+            쇠가 마찰이 나고 있습니다.
+          </span>
+        </p>
+        <h2>Note</h2>
+        <p class="bright">
+          이 기계는 1990년대에 만들어 졌습니다.
+        </p>
+        <div class="view_detail">
+          <a href="javascript:void(0)" class="view_btn">상세 설명 보기</a>
+          <ul style="display:none">
+            <li>
+              설명 1
+            </li>
+            <li>
+              설명 2
+            </li>
+            <li>
+              설명 3
+            </li>
+            <li>
+              설명 4
+            </li>
+            <li>
+              설명 5
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

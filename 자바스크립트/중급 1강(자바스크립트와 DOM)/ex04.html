@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-4(이벤트 다중추가)</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let pic=document.querySelector('#pic > img');
+
+            /*버블링이란 이벤트가 하위요소에서 발생하면 상위요소까지 전파되는 형태를 버블링이라고 한다.*/
+
+            /*아래와 같이 하나의 선택자에게 다중으로 이벤트 등록 가능*/
+            pic.addEventListener('mouseover', changePic, false);
+            pic.addEventListener('mouseout', originPic, false);
+
+
+        })
+
+        function changePic(){
+            let pic=document.querySelector('#pic > img');
+            pic.src = 'img/acrd2.png';
+            /*pic1.src = 'img/acrd3.png';*/
+        }
+
+        function originPic(){
+            let pic=document.querySelector('#pic > img');
+            pic.src = 'img/acrd1.png';
+        }
+    </script>
+</head>
+<body>
+    <div id="pic">
+        <img src="img/acrd1.png" alt="이미지">
+    </div>
+</body>
+</html>
