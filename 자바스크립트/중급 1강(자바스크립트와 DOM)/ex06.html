@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-6(이벤트-도형의 변환 예제)</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          let shape = document.querySelector('.shape');
+          shape.addEventListener('mouseover', function(){
+            shapeCircle(this);
+          });
+
+          shape.addEventListener('mouseout', function(){
+            shapeRect(this);
+          });
+
+        });
+
+        function shapeCircle(shape){
+          shape.classList.add('active');
+        }
+
+        function shapeRect(shape){
+          shape.classList.remove('active');
+        }
+
+
+    </script>
+    <style>
+      .container{max-width:800px;text-align:center;margin:50px auto}
+      .shape{width:200px;height:200px;margin:0 auto;border:2px solid #707070;transition:all .5s}
+      .shape.active{background:red;border:2px solid red;border-radius:50%}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <p>도형 위로 마우스 포인터를 올려놓으세요</p>
+    <div class="shape">
+
+    </div>
+  </div>
+</body>
+</html>

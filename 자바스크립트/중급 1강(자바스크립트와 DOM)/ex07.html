@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-6(요소 추가하기)</title>
+
+    <script>
+        function addTextList(){
+            let newList = document.createElement('p');
+            let userName = document.getElementById('textField');
+            let userValue = document.createTextNode(userName.value);
+            let nameList = document.getElementById('nameList');
+
+            if(userName.value == ''){
+                return false;
+            }
+            newList.appendChild(userValue);
+            nameList.appendChild(newList);
+            userName.value = '';
+        }
+    </script>
+    <style>
+        .container{max-width:800px;margin:50px auto}
+        .input_box{display: flex;align-items:center;gap:10px}
+        .input_box>input{display:inline-flex;width:200px;height:35px;background:#fff;border:1px solid #707070}
+        .input_box>button{display:inline-block;padding:10px 20px;color:#fff;background:#707070;border:none;appearance:none;outline:none;cursor:pointer;}
+        .name_list{padding-top:35px;margin-top:25px;border-top:2px solid #000}
+    </style>
+</head>
+<body>
+  <div class="container">
+        <form action="#" class="input_box">
+            <input type="text" id="textField" required/>
+            <button type="button" onclick="addTextList();return false;">
+                신청
+            </button>
+        </form>
+        <div id="nameList" class="name_list">
+
+        </div>
+
+
+
+  </div>
+</body>
+</html>
