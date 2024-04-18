@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript vs jquery-2</title>
+  <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script>
+    /*자바스크립트*/
+    window.onload = function(){
+      let pArr = document.getElementsByTagName('p');
+      for(let i =0;i<pArr.length;i++){
+        pArr[i].style.color = "red";
+      }
+    }
+    /*jquery*/
+    $(document).ready(function(){
+      $('p').css('color','red');
+    })
+  </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+      샘플페이지(div, id=samplePage, class=page)
+      <div id="header">
+        헤더영역(div, id=header)
+      </div>
+      <div id="content" class="sample_con">
+        노드 찾기(div, id=content, class=sample_con
+        <ul class="menu">
+          일반 노드찾기(ul, class=menu)
+          <li data-value="1">id로 찾기(li, data-value=1)</li>
+          <li class="select">id로 찾기(li, class=select)</li>
+          <li data-value="2">id로 찾기(li, data-value=3)</li>
+          <li class="test1">id로 찾기(li, class=test1)</li>
+        </ul>
+        <div class="content_data">
+          자식 노드 찾기(div, class=content_data)
+          <p class="test1">1. 모든 자식 노드 찾기(p, class=test1)</p>
+          <p>2. 특정 자식 노드만 찾기(p)</p>
+          <p class="test2">2. 마지막 자식 노드 찾기(p, class=test2)</p>
+        </div>
+      </div>
+      <div id="footer">
+        푸터 영역(div, id=footer)
+      </div>
+
+    </div>
+</body>
+</html>

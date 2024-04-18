@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript vs jquery-4</title>
+  <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script>
+    /*자바스크립트*/
+    window.onload = function(){
+      let btn = document.getElementById('btn');
+
+      /*IE7버전 이하를 크로스 브라우징 처리*/
+      if(btn.attachEvent){
+        btn.attachEvent("onclick", function(){
+          alert("반갑습니다.");
+        })
+      }
+
+      btn.addEventListener('click', function (){
+        alert('반갑습니다.');
+      })
+    }
+    /*jquery*/
+    $(document).ready(function(){
+
+    })
+  </script>
+</head>
+<body>
+   <button id="btn">버튼</button>
+    <br/>
+</body>
+</html>
